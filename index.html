@@ -1,266 +1,330 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>GetHutShirt – Custom T-Shirts Erode</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Custom T-shirts & dropshipping with Blinkstore, Qikink, and Printrove. Based in Erode.">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Creative Studio – Custom Apparel & Merchandise Design</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Swiper.js for carousel/slider -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+  <!-- Fancybox for gallery lightbox -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"/>
   <style>
-    :root {
-      --theme-color: #3498db; /* Default: Blue */
-      --accent: #ecf0f1;
-      --dark-bg: #0e0e10;
-      --card-bg: rgba(255, 255, 255, 0.05);
-      --text-light: #f1f1f1;
-    }
-
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background: url('https://www.transparenttextures.com/patterns/cartographer.png') repeat;
-      background-color: var(--dark-bg);
-      color: var(--text-light);
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-      padding: 20px 30px;
-      z-index: 10;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 1.8rem;
-      color: var(--theme-color);
-      letter-spacing: 1px;
-    }
-
-    nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: #ccc;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: var(--theme-color);
-    }
-
-    .hero {
-      text-align: center;
-      padding: 80px 20px 40px;
-    }
-
-    .hero h2 {
-      font-size: 2.2rem;
-      margin-bottom: 12px;
-      color: var(--theme-color);
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      color: #ccc;
-      max-width: 700px;
-      margin: auto;
-    }
-
-    .cards-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      padding: 60px 20px;
-    }
-
-    .card {
-      background: var(--card-bg);
-      backdrop-filter: blur(8px);
-      border-radius: 20px;
-      width: 420px;
-      padding: 30px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 0 20px rgba(52, 152, 219, 0.1);
-    }
-
-    .card:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 25px rgba(52, 152, 219, 0.4);
-    }
-
-    .card h3 {
-      color: var(--theme-color);
-      font-size: 1.6rem;
-      letter-spacing: 1px;
-    }
-
-    .card p {
-      margin: 12px 0;
-      color: #ddd;
-    }
-
-    .buttons {
-      margin-top: 20px;
-      display: flex;
-      gap: 10px;
-    }
-
-    .buttons button,
-    .buttons a {
-      background: var(--theme-color);
-      color: #000;
-      font-weight: bold;
-      border: none;
-      padding: 10px 16px;
-      border-radius: 8px;
-      text-decoration: none;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .buttons button:hover,
-    .buttons a:hover {
-      background: #2980b9;
-      color: #fff;
-    }
-
-    .iframe-modal {
-      display: none;
-      position: fixed;
-      z-index: 999;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.9);
-      align-items: center;
-      justify-content: center;
-    }
-
-    .iframe-box {
-      width: 90%;
-      max-width: 800px;
-      background: #111;
-      border-radius: 12px;
-      overflow: hidden;
-    }
-
-    .iframe-box iframe {
-      width: 100%;
-      height: 500px;
-      border: none;
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      font-size: 24px;
-      color: white;
-      cursor: pointer;
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      color: #aaa;
+    body { font-family: 'Inter', Arial, sans-serif; margin: 0; background: #f7f8fa; color: #222; }
+    header { background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    nav { display: flex; gap: 2rem; padding: 1rem 2rem; justify-content: center; flex-wrap: wrap;}
+    nav a { color: #4f46e5; text-decoration: none; font-weight: 500; padding: 0.5rem 1rem; border-radius: 4px; }
+    nav a:hover { background: #e0e7ff; }
+    .hero { background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%); padding: 4rem 2rem; text-align: center; }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.2rem; margin-bottom: 2rem; }
+    button, .cta { background: #4f46e5; color: #fff; border: none; padding: 0.7rem 1.5rem; border-radius: 4px; font-size: 1rem; cursor: pointer; margin-top: 1rem; transition: background 0.2s; }
+    button:hover, .cta:hover { background: #3730a3; }
+    section { margin: 2rem auto; max-width: 900px; background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);}
+    h2 { color: #4f46e5; margin-top: 0; }
+    .process-flow { display: flex; gap: 2rem; justify-content: center; margin: 2rem 0; flex-wrap: wrap; }
+    .process-step { background: #fff; border-radius: 50%; width: 90px; height: 90px; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(0,0,0,0.1); cursor: pointer; transition: transform 0.2s; }
+    .process-step:hover { transform: scale(1.07); background: #f3f0ff;}
+    .process-step span { font-size: 2rem;}
+    .process-detail { margin: 1rem 0; min-height: 40px; color: #333; }
+    .mockup-demo { display: flex; align-items: center; gap: 1.5rem; margin: 2rem 0; }
+    .mockup-demo img { width: 120px; border-radius: 8px; border: 1px solid #ddd;}
+    .hidden { display: none; }
+    form label { display: block; margin: 1rem 0 0.3rem; }
+    form input, form textarea, form select { width: 100%; padding: 0.5rem; margin-bottom: 0.7rem; border: 1px solid #ccc; border-radius: 4px; }
+    form input[type="checkbox"] { width: auto; }
+    .swiper-container { width: 100%; margin: 2rem 0; }
+    .swiper-slide img { width: 100%; border-radius: 8px; }
+    .interactive-diagram img { width: 220px; margin: 1rem 0; }
+    .design-styles ul, .design-styles li { margin: 0; padding: 0; list-style: none; }
+    .design-styles li { margin-bottom: 0.7rem; }
+    details { margin-bottom: 1rem; }
+    .chatbot-placeholder { background: #f3f0ff; color: #4f46e5; padding: 1rem; border-radius: 6px; text-align: center; }
+    footer { text-align: center; padding: 2rem 0 1rem; color: #888; background: #fff; border-top: 1px solid #eee; margin-top: 2rem;}
+    @media (max-width: 700px) {
+      section { padding: 1rem; }
+      .process-flow { flex-direction: column; align-items: center; }
+      .mockup-demo { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
+  <header>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#process">Our Process</a>
+      <a href="#requirements">Requirements</a>
+      <a href="#educational">Educational</a>
+      <a href="#design-types">Design Types</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </header>
 
-<header>
-  <h1>GetHutShirt</h1>
-  <nav>
-    <a href="#card1">Custom Design</a>
-    <a href="#card2">Ready-Made</a>
-    <a href="#card3">Services</a>
-    <a href="#card4">Process</a>
-  </nav>
-</header>
+  <main>
+    <!-- Home/About -->
+    <section id="home" class="hero">
+      <h1>Creative Studio</h1>
+      <p>Custom design, apparel, merchandise & personalized gifts—quality prints, expert branding, and creative solutions for every occasion.</p>
+      <a href="#requirements" class="cta">Start Your Project</a>
+    </section>
 
-<section class="hero">
-  <h2>Design. Print. Deliver.</h2>
-  <p>From concept to doorstep — powered by Blinkstore, Qikink, Printrove. Focused from Erode, India 🇮🇳</p>
-</section>
+    <!-- Our Process -->
+    <section id="process">
+      <h2>Our Process</h2>
+      <div class="process-flow">
+        <div class="process-step" onclick="showDetail('colour')">
+          <span>🎨</span>
+          <p>Colour</p>
+        </div>
+        <div class="process-step" onclick="showDetail('text')">
+          <span>📝</span>
+          <p>Text</p>
+        </div>
+        <div class="process-step" onclick="showDetail('placement')">
+          <span>📍</span>
+          <p>Placement</p>
+        </div>
+        <div class="process-step" onclick="showDetail('tshirt-colour')">
+          <span>👕</span>
+          <p>T-shirt Colour</p>
+        </div>
+      </div>
+      <div id="process-detail" class="process-detail"></div>
+      <div class="mockup-demo">
+        <img src="https://dummyimage.com/120x140/cccccc/222&text=Mockup" alt="Demo Mockup">
+        <div>
+          <button onclick="showFulfillment()">If OK</button>
+          <button onclick="showRevisions()">If Not OK</button>
+        </div>
+      </div>
+      <div id="fulfillment-details" class="hidden">
+        <ul>
+          <li>Put on Blinkstore</li>
+          <li>Final print (Minimum quantity)</li>
+          <li>Demo</li>
+          <li>Dropship in bulk</li>
+        </ul>
+      </div>
+    </section>
 
-<section class="cards-container">
+    <!-- Requirements Form -->
+    <section id="requirements">
+      <h2>Submit Your Design Requirements</h2>
+      <form id="requirements-form" autocomplete="off">
+        <label>Reference Link: <input type="url" name="reference" placeholder="https://..."></label>
+        <label>Logo File: <input type="file" name="logo" accept="image/*"></label>
+        <label>Any References? <input type="file" name="references" multiple></label>
+        <label>Placements:
+          <input type="checkbox" name="placement" value="Front"> Front
+          <input type="checkbox" name="placement" value="Back"> Back
+          <input type="checkbox" name="placement" value="Sleeve"> Sleeve
+          <input type="checkbox" name="placement" value="Right"> Right
+          <input type="checkbox" name="placement" value="Left"> Left
+        </label>
+        <label>For What? (Competitor Analysis): <textarea name="purpose"></textarea></label>
+        <label>Colour: <input type="color" name="colour"></label>
+        <label>T-shirt Colour: <input type="color" name="tshirt-colour"></label>
+        <button type="submit">Submit</button>
+        <div id="form-success" class="hidden">Thank you! We’ll review your requirements and get in touch.</div>
+      </form>
+    </section>
 
-  <div class="card" id="card1">
-    <h3>Custom T-Shirt Designs</h3>
-    <p>We bring your imagination to life — logos, text, graphics — printed & shipped using top POD platforms.</p>
-    <div class="buttons">
-      <button onclick="openPreview('https://app.presentations.ai/view/4N8g20')">Live Preview</button>
-      <a href="https://app.presentations.ai/view/4N8g20" target="_blank">Visit Site</a>
-    </div>
-  </div>
+    <!-- Educational Content -->
+    <section id="educational">
+      <h2>Unlock Your Brand's Potential</h2>
+      <div class="educational-section">
+        <h3>The Art of Apparel & Merchandise Design</h3>
+        <p>
+          <b>Mastering the Canvas:</b> Typography, color psychology, layout, and printing methods (screen, DTG, embroidery, sublimation). Avoid common mistakes—our designers optimize every print!
+        </p>
+        <div class="quiz">
+          <h4>Design 101 Quiz</h4>
+          <div id="quiz-content">
+            <p>Which printing method is best for vibrant, full-color images on cotton T-shirts?</p>
+            <button onclick="quizAnswer(true)">A. Direct-to-Garment (DTG)</button>
+            <button onclick="quizAnswer(false)">B. Embroidery</button>
+            <button onclick="quizAnswer(false)">C. Sublimation</button>
+            <div id="quiz-result"></div>
+          </div>
+        </div>
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="https://dummyimage.com/400x250/cccccc/222&text=Before"><p>Before</p></div>
+            <div class="swiper-slide"><img src="https://dummyimage.com/400x250/8ec5fc/fff&text=After"><p>After</p></div>
+            <div class="swiper-slide"><img src="https://dummyimage.com/400x250/e0c3fc/333&text=Screen+Printing"><p>Screen Printing</p></div>
+            <div class="swiper-slide"><img src="https://dummyimage.com/400x250/cccccc/222&text=DTG"><p>DTG</p></div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+        <div class="interactive-diagram">
+          <h4>Logo & Text Placement Diagram</h4>
+          <img src="https://dummyimage.com/220x250/cccccc/333&text=T-shirt+Diagram" usemap="#tshirt-map" alt="T-shirt Diagram">
+          <map name="tshirt-map">
+            <area shape="rect" coords="60,60,120,120" alt="Left Chest" onclick="showPlacement('left-chest')">
+            <area shape="rect" coords="80,180,140,220" alt="Front Center" onclick="showPlacement('front-center')">
+          </map>
+          <div id="placement-info"></div>
+        </div>
+      </div>
+      <div class="educational-section">
+        <h3>Design That Defines: Building Brand & Culture</h3>
+        <p>
+          <b>Wear Your Identity:</b> Branded items create instant recognition, professionalism, and team unity. Everyday marketing: branded items as "walking billboards".
+        </p>
+        <a href="#requirements" class="cta">Start Your Project</a>
+        <h4>Client Testimonials</h4>
+        <div class="swiper-container testimonials">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <blockquote>“Our team loved the custom tees—great quality, fast turnaround!”<br><b>- Startup Founder</b></blockquote>
+            </div>
+            <div class="swiper-slide">
+              <blockquote>“The branding on our mugs made our event memorable!”<br><b>- Event Organizer</b></blockquote>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+      <div class="educational-section">
+        <h3>Gifts That Last: Cherishing Special Moments</h3>
+        <p>
+          <b>The Art of Gifting:</b> Personalized prints for every occasion—wedding favors, bridal party gifts, "Save the Date" announcements, and startup/event giveaways.
+        </p>
+        <label>Gift Idea Generator:
+          <select id="gift-occasion" onchange="showGiftIdeas()">
+            <option value="">Select Occasion</option>
+            <option value="wedding">Wedding</option>
+            <option value="birthday">Birthday</option>
+            <option value="anniversary">Anniversary</option>
+          </select>
+        </label>
+        <div id="gift-ideas"></div>
+        <h4>Gallery of Wedding/Event Gifts</h4>
+        <div>
+          <a data-fancybox="gallery" href="https://dummyimage.com/400x250/e0c3fc/333&text=Wedding+Gift"><img src="https://dummyimage.com/120x80/e0c3fc/333&text=Wedding+Gift" alt="Wedding Gift"></a>
+          <a data-fancybox="gallery" href="https://dummyimage.com/400x250/8ec5fc/fff&text=Event+Gift"><img src="https://dummyimage.com/120x80/8ec5fc/fff&text=Event+Gift" alt="Event Gift"></a>
+        </div>
+      </div>
+    </section>
 
-  <div class="card" id="card2">
-    <h3>Ready-Made Collections</h3>
-    <p>Browse hand-picked designs crafted by top creators. Just pick, pay, and receive at your doorstep.</p>
-    <div class="buttons">
-      <button onclick="openPreview('https://gethutshirtcollections.blinkstore.ai/')">Live Preview</button>
-      <a href="https://gethutshirtcollections.blinkstore.ai/" target="_blank">Visit Site</a>
-    </div>
-  </div>
+    <!-- Design Types -->
+    <section id="design-types">
+      <h2>Different Types of Design</h2>
+      <div class="design-styles">
+        <h3>Styles</h3>
+        <ul>
+          <li><b>Minimalist:</b> Clean, simple, lots of whitespace.</li>
+          <li><b>Typography-Based:</b> Focus on font and text layout.</li>
+          <li><b>Illustrative:</b> Custom illustrations and artwork.</li>
+          <li><b>Photographic:</b> Uses photos as main element.</li>
+          <li><b>Vintage/Retro:</b> Nostalgic, classic design cues.</li>
+          <li><b>Abstract:</b> Shapes, colors, and textures.</li>
+          <li><b>Geometric:</b> Patterns, lines, and symmetry.</li>
+          <li><b>Hand-drawn/Sketchy:</b> Artistic, casual feel.</li>
+          <li><b>Gothic/Edgy:</b> Dark, bold, dramatic.</li>
+          <li><b>Modern/Futuristic:</b> Sleek, tech-inspired.</li>
+        </ul>
+        <h3>Applications</h3>
+        <ul>
+          <li><b>T-shirt Design:</b> Fit, fabric, purpose-driven.</li>
+          <li><b>Mug Design:</b> Wraparound graphics, handle placement.</li>
+          <li><b>Bottle Design:</b> Ergonomics, viewing angles.</li>
+        </ul>
+      </div>
+    </section>
 
-  <div class="card" id="card3">
-    <h3>Startup & AI Tools</h3>
-    <p>Launch your brand, site or app in minutes with our smart starter kits, design tools & branding solutions.</p>
-    <div class="buttons">
-      <button onclick="openPreview('https://resourceful-fox.static.domains/webpage77.htm')">Live Preview</button>
-      <a href="https://resourceful-fox.static.domains/webpage77.htm" target="_blank">Visit Site</a>
-    </div>
-  </div>
+    <!-- FAQ & Chatbot -->
+    <section id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <details>
+        <summary>What is your minimum order?</summary>
+        <p>Our minimum order is 10 pieces for custom prints.</p>
+      </details>
+      <details>
+        <summary>How do I share my logo?</summary>
+        <p>Upload via our form or share a Google Drive/WhatsApp link.</p>
+      </details>
+      <details>
+        <summary>Can I get a demo before final print?</summary>
+        <p>Yes, we provide digital mockups before printing.</p>
+      </details>
+      <div class="chatbot-placeholder">
+        <p>Chatbot coming soon!</p>
+      </div>
+    </section>
+  </main>
 
-  <div class="card" id="card4">
-    <h3>Our Process</h3>
-    <p>From consultation to delivery — discover how we turn your ideas into delivered reality.</p>
-    <div class="buttons">
-      <button onclick="openPreview('https://app.presentations.ai/view/lsPg2k')">Live Preview</button>
-      <a href="https://app.presentations.ai/view/lsPg2k" target="_blank">Visit Site</a>
-    </div>
-  </div>
+  <footer>
+    <p>&copy; 2025 Creative Studio. All rights reserved.</p>
+  </footer>
 
-</section>
+  <!-- Swiper.js & Fancybox scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+  <script>
+    // Process step details
+    function showDetail(element) {
+      const details = {
+        colour: 'Choose vibrant or subtle colors to match your brand. See examples above.',
+        text: 'Select impactful typography for your message.',
+        placement: 'Decide where your design appears: front, back, sleeve, etc.',
+        'tshirt-colour': 'Pick a base color that complements your design.'
+      };
+      document.getElementById('process-detail').textContent = details[element];
+    }
+    function showFulfillment() {
+      document.getElementById('fulfillment-details').classList.remove('hidden');
+    }
+    function showRevisions() {
+      alert('Let’s revise your design. Return to the design step.');
+    }
 
-<!-- Modal -->
-<div class="iframe-modal" id="modal">
-  <span class="close-btn" onclick="closePreview()">✖</span>
-  <div class="iframe-box">
-    <iframe src="" id="previewFrame"></iframe>
-  </div>
-</div>
+    // Requirements form
+    document.getElementById('requirements-form').onsubmit = function(e) {
+      e.preventDefault();
+      document.getElementById('form-success').classList.remove('hidden');
+      setTimeout(() => document.getElementById('form-success').classList.add('hidden'), 3500);
+      this.reset();
+    };
 
-<footer>
-  &copy; 2025 GetHutShirt – Built with ❤️ in Erode | Powered by POD
-</footer>
+    // Swiper sliders
+    new Swiper('.swiper-container', {
+      loop: true,
+      pagination: { el: '.swiper-pagination' }
+    });
+    new Swiper('.testimonials', {
+      loop: true,
+      pagination: { el: '.swiper-pagination' }
+    });
 
-<script>
-  function openPreview(url) {
-    const modal = document.getElementById('modal');
-    const frame = document.getElementById('previewFrame');
-    frame.src = url;
-    modal.style.display = 'flex';
-  }
+    // Quiz logic
+    function quizAnswer(correct) {
+      const result = document.getElementById('quiz-result');
+      if (correct) {
+        result.innerHTML = '<span style="color:green;">Correct! DTG is best for vibrant, full-color images on cotton.</span><br><a href="#requirements" class="cta">Get a Free Consultation</a>';
+      } else {
+        result.innerHTML = '<span style="color:red;">Not quite. Try again!</span>';
+      }
+    }
 
-  function closePreview() {
-    const modal = document.getElementById('modal');
-    const frame = document.getElementById('previewFrame');
-    frame.src = '';
-    modal.style.display = 'none';
-  }
-</script>
+    // Placement diagram interactivity
+    function showPlacement(area) {
+      const info = {
+        'left-chest': 'Left Chest: Ideal for subtle branding or logos.',
+        'front-center': 'Front Center: Perfect for bold statements or main artwork.'
+      };
+      document.getElementById('placement-info').textContent = info[area] || '';
+    }
 
+    // Gift idea generator
+    function showGiftIdeas() {
+      const val = document.getElementById('gift-occasion').value;
+      const ideas = {
+        wedding: '<ul><li>Custom T-shirts for guests</li><li>Personalized mugs for bridal party</li><li>"Save the Date" bottles</li></ul><a href="#requirements" class="cta">Personalize Your Gift</a>',
+        birthday: '<ul><li>Photo mugs</li><li>Custom T-shirts with name/age</li><li>Printed bottles</li></ul><a href="#requirements" class="cta">Browse Our Gift Collections</a>',
+        anniversary: '<ul><li>Matching couple tees</li><li>Engraved mugs</li><li>Custom message bottles</li></ul><a href="#requirements" class="cta">Get a Custom Quote</a>'
+      };
+      document.getElementById('gift-ideas').innerHTML = ideas[val] || '';
+    }
+  </script>
 </body>
 </html>
