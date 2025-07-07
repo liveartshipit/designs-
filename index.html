@@ -14,258 +14,180 @@
     nav { display: flex; gap: 2rem; padding: 1rem 2rem; justify-content: center; flex-wrap: wrap;}
     nav a { color: #4f46e5; text-decoration: none; font-weight: 500; padding: 0.5rem 1rem; border-radius: 4px; }
     nav a:hover { background: #e0e7ff; }
-    .hero { background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%); padding: 4rem 2rem; text-align: center; }
-    .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
-    .hero p { font-size: 1.2rem; margin-bottom: 2rem; }
-    .hero-img { max-width: 400px; width: 100%; border-radius: 16px; margin: 2rem auto 0; box-shadow: 0 4px 16px rgba(0,0,0,0.07);}
-    button, .cta { background: #4f46e5; color: #fff; border: none; padding: 0.7rem 1.5rem; border-radius: 4px; font-size: 1rem; cursor: pointer; margin-top: 1rem; transition: background 0.2s; }
-    button:hover, .cta:hover { background: #3730a3; }
     section { margin: 2rem auto; max-width: 900px; background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);}
-    h2 { color: #4f46e5; margin-top: 0; }
-    .process-flow { display: flex; gap: 2rem; justify-content: center; margin: 2rem 0; flex-wrap: wrap; }
-    .process-step { background: #fff; border-radius: 50%; width: 90px; height: 90px; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(0,0,0,0.1); cursor: pointer; transition: transform 0.2s; }
-    .process-step:hover { transform: scale(1.07); background: #f3f0ff;}
-    .process-step span { font-size: 2rem;}
-    .process-detail { margin: 1rem 0; min-height: 40px; color: #333; }
-    .mockup-demo { display: flex; align-items: center; gap: 1.5rem; margin: 2rem 0; }
-    .mockup-demo img { width: 160px; border-radius: 8px; border: 1px solid #ddd;}
-    .hidden { display: none; }
-    form label { display: block; margin: 1rem 0 0.3rem; }
-    form input, form textarea, form select { width: 100%; padding: 0.5rem; margin-bottom: 0.7rem; border: 1px solid #ccc; border-radius: 4px; }
-    form input[type="checkbox"] { width: auto; }
+    h1, h2 { color: #4f46e5; margin-top: 0; }
+    h3 { color: #222; margin-bottom: 0.5rem;}
+    .cta, button { background: #4f46e5; color: #fff; border: none; padding: 0.7rem 1.5rem; border-radius: 4px; font-size: 1rem; cursor: pointer; margin-top: 1rem; transition: background 0.2s; }
+    .cta:hover, button:hover { background: #3730a3; }
     .swiper-container { width: 100%; margin: 2rem 0; }
     .swiper-slide img { width: 100%; border-radius: 8px; }
-    .interactive-diagram img { width: 220px; margin: 1rem 0; }
-    .design-styles ul, .design-styles li { margin: 0; padding: 0; list-style: none; }
-    .design-styles li { margin-bottom: 0.7rem; }
-    details { margin-bottom: 1rem; }
-    .chatbot-placeholder { background: #f3f0ff; color: #4f46e5; padding: 1rem; border-radius: 6px; text-align: center; }
     .gallery { display: flex; gap: 1rem; flex-wrap: wrap; }
     .gallery a img { border-radius: 8px; width: 120px; height: 80px; object-fit: cover; border: 1px solid #eee;}
     .testimonial-img { border-radius: 50%; width: 48px; height: 48px; object-fit: cover; border: 2px solid #4f46e5; margin-right: 1rem; vertical-align: middle;}
     .testimonial-block { display: flex; align-items: center; }
+    .chatbot-widget { position: fixed; bottom: 24px; right: 24px; z-index: 999; }
+    .chatbot-btn { background: #4f46e5; color: #fff; border-radius: 50%; width: 56px; height: 56px; border: none; font-size: 2rem; box-shadow: 0 4px 16px rgba(0,0,0,0.18); cursor: pointer; }
+    .chatbot-window { display: none; position: absolute; bottom: 70px; right: 0; width: 320px; background: #fff; border-radius: 12px; box-shadow: 0 2px 16px rgba(0,0,0,0.18); padding: 1rem; }
+    .chatbot-window.active { display: block; }
+    .chatbot-header { font-weight: bold; color: #4f46e5; margin-bottom: 0.5rem;}
+    .chatbot-messages { max-height: 180px; overflow-y: auto; margin-bottom: 0.5rem;}
+    .chatbot-input { width: 100%; padding: 0.5rem; border-radius: 6px; border: 1px solid #eee;}
     @media (max-width: 700px) {
       section { padding: 1rem; }
-      .process-flow { flex-direction: column; align-items: center; }
-      .mockup-demo { flex-direction: column; align-items: flex-start; }
       .gallery { justify-content: center; }
+      .chatbot-window { width: 95vw; right: 0; }
     }
   </style>
 </head>
 <body>
   <header>
     <nav>
-      <a href="#home">Home</a>
-      <a href="#process">Our Process</a>
-      <a href="#requirements">Requirements</a>
-      <a href="#educational">Educational</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#branding">Branding</a>
+      <a href="#gifting">Gifting</a>
       <a href="#design-types">Design Types</a>
       <a href="#faq">FAQ</a>
     </nav>
   </header>
 
-  <main>
-    <!-- Home/About -->
-    <section id="home" class="hero">
-      <h1>Creative Studio</h1>
-      <p>Custom design, apparel, merchandise & personalized gifts—quality prints, expert branding, and creative solutions for every occasion.</p>
-      <img class="hero-img" src="https://images.pexels.com/photos/532220/pexels-photo-532220.jpeg?auto=compress&w=800&q=80" alt="Creative apparel studio workspace">
-      <a href="#requirements" class="cta">Start Your Project</a>
-    </section>
-
-    <!-- Our Process -->
-    <section id="process">
-      <h2>Our Process</h2>
-      <div class="process-flow">
-        <div class="process-step" onclick="showDetail('colour')">
-          <span>🎨</span>
-          <p>Colour</p>
+  <!-- Expertise/Quiz FIRST, no image at start -->
+  <section id="expertise">
+    <h1>Unlock Your Brand's Potential</h1>
+    <h2>The Art of Apparel & Merchandise Design</h2>
+    <p><b>Mastering the Canvas:</b> Typography, color psychology, layout, and printing methods (screen, DTG, embroidery, sublimation). Avoid common mistakes—our designers optimize every print!</p>
+    <h3>Design 101 Quiz</h3>
+    <div id="quiz-content">
+      <p>Which printing method is best for vibrant, full-color images on cotton T-shirts?</p>
+      <button onclick="quizAnswer(true)">A. Direct-to-Garment (DTG)</button>
+      <button onclick="quizAnswer(false)">B. Embroidery</button>
+      <button onclick="quizAnswer(false)">C. Sublimation</button>
+      <div id="quiz-result"></div>
+    </div>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="https://images.pexels.com/photos/532220/pexels-photo-532220.jpeg?auto=compress&w=800&q=80" alt="Before design">
+          <p style="text-align:center;">Before</p>
         </div>
-        <div class="process-step" onclick="showDetail('text')">
-          <span>📝</span>
-          <p>Text</p>
+        <div class="swiper-slide">
+          <img src="https://images.pexels.com/photos/532221/pexels-photo-532221.jpeg?auto=compress&w=800&q=80" alt="After design">
+          <p style="text-align:center;">After</p>
         </div>
-        <div class="process-step" onclick="showDetail('placement')">
-          <span>📍</span>
-          <p>Placement</p>
+        <div class="swiper-slide">
+          <img src="https://images.pexels.com/photos/532223/pexels-photo-532223.jpeg?auto=compress&w=800&q=80" alt="Screen Printing">
+          <p style="text-align:center;">Screen Printing</p>
         </div>
-        <div class="process-step" onclick="showDetail('tshirt-colour')">
-          <span>👕</span>
-          <p>T-shirt Colour</p>
-        </div>
-      </div>
-      <div id="process-detail" class="process-detail"></div>
-      <div class="mockup-demo">
-        <img src="https://images.pexels.com/photos/532221/pexels-photo-532221.jpeg?auto=compress&w=400&q=80" alt="T-shirt design mockup">
-        <div>
-          <button onclick="showFulfillment()">If OK</button>
-          <button onclick="showRevisions()">If Not OK</button>
+        <div class="swiper-slide">
+          <img src="https://images.pexels.com/photos/532225/pexels-photo-532225.jpeg?auto=compress&w=800&q=80" alt="DTG">
+          <p style="text-align:center;">DTG</p>
         </div>
       </div>
-      <div id="fulfillment-details" class="hidden">
-        <ul>
-          <li>Put on Blinkstore</li>
-          <li>Final print (Minimum quantity)</li>
-          <li>Demo</li>
-          <li>Dropship in bulk</li>
-        </ul>
-      </div>
-    </section>
+      <div class="swiper-pagination"></div>
+    </div>
+    <h4>Logo & Text Placement Diagram</h4>
+    <img src="https://images.pexels.com/photos/532224/pexels-photo-532224.jpeg?auto=compress&w=400&q=80" alt="T-shirt Diagram" style="width:220px;display:block;margin:1rem auto;">
+  </section>
 
-    <!-- Requirements Form -->
-    <section id="requirements">
-      <h2>Submit Your Design Requirements</h2>
-      <form id="requirements-form" autocomplete="off">
-        <label>Reference Link: <input type="url" name="reference" placeholder="https://..."></label>
-        <label>Logo File: <input type="file" name="logo" accept="image/*"></label>
-        <label>Any References? <input type="file" name="references" multiple></label>
-        <label>Describe Your Idea: <textarea name="idea" placeholder="Tell us about your vision, theme, or any inspiration..."></textarea></label>
-        <label>Placements:
-          <input type="checkbox" name="placement" value="Front"> Front
-          <input type="checkbox" name="placement" value="Back"> Back
-          <input type="checkbox" name="placement" value="Sleeve"> Sleeve
-          <input type="checkbox" name="placement" value="Right"> Right
-          <input type="checkbox" name="placement" value="Left"> Left
-        </label>
-        <label>For What? (Competitor Analysis): <textarea name="purpose"></textarea></label>
-        <label>Colour: <input type="color" name="colour"></label>
-        <label>T-shirt Colour: <input type="color" name="tshirt-colour"></label>
-        <button type="submit">Submit</button>
-        <div id="form-success" class="hidden">Thank you! We’ll review your requirements and get in touch.</div>
-      </form>
-    </section>
-
-    <!-- Educational Content -->
-    <section id="educational">
-      <h2>Unlock Your Brand's Potential</h2>
-      <div class="educational-section">
-        <h3>The Art of Apparel & Merchandise Design</h3>
-        <p>
-          <b>Mastering the Canvas:</b> Typography, color psychology, layout, and printing methods (screen, DTG, embroidery, sublimation). Avoid common mistakes—our designers optimize every print!
-        </p>
-        <div class="quiz">
-          <h4>Design 101 Quiz</h4>
-          <div id="quiz-content">
-            <p>Which printing method is best for vibrant, full-color images on cotton T-shirts?</p>
-            <button onclick="quizAnswer(true)">A. Direct-to-Garment (DTG)</button>
-            <button onclick="quizAnswer(false)">B. Embroidery</button>
-            <button onclick="quizAnswer(false)">C. Sublimation</button>
-            <div id="quiz-result"></div>
+  <!-- Branding: Design That Defines -->
+  <section id="branding">
+    <h2>Design That Defines: Building Brand & Culture</h2>
+    <p><b>Wear Your Identity:</b> Branded items create instant recognition, professionalism, and team unity. Everyday marketing: branded items as "walking billboards".</p>
+    <a href="#requirements" class="cta">Start Your Project</a>
+    <h4>Client Testimonials</h4>
+    <div class="swiper-container testimonials">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="testimonial-block">
+            <img src="https://images.pexels.com/photos/1139743/pexels-photo-1139743.jpeg?auto=compress&w=80&q=80" alt="Client 1" class="testimonial-img">
+            <blockquote>“Our team loved the custom tees—great quality, fast turnaround!”<br><b>- Startup Founder</b></blockquote>
           </div>
         </div>
-        <div class="swiper-container">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="https://images.pexels.com/photos/532220/pexels-photo-532220.jpeg?auto=compress&w=800&q=80" alt="Before design"><p>Before</p></div>
-            <div class="swiper-slide"><img src="https://images.pexels.com/photos/532221/pexels-photo-532221.jpeg?auto=compress&w=800&q=80" alt="After design"><p>After</p></div>
-            <div class="swiper-slide"><img src="https://images.pexels.com/photos/532223/pexels-photo-532223.jpeg?auto=compress&w=800&q=80" alt="Screen Printing"><p>Screen Printing</p></div>
-            <div class="swiper-slide"><img src="https://images.pexels.com/photos/532225/pexels-photo-532225.jpeg?auto=compress&w=800&q=80" alt="DTG"><p>DTG</p></div>
+        <div class="swiper-slide">
+          <div class="testimonial-block">
+            <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&w=80&q=80" alt="Client 2" class="testimonial-img">
+            <blockquote>“The branding on our mugs made our event memorable!”<br><b>- Event Organizer</b></blockquote>
           </div>
-          <div class="swiper-pagination"></div>
-        </div>
-        <div class="interactive-diagram">
-          <h4>Logo & Text Placement Diagram</h4>
-          <img src="https://images.pexels.com/photos/532224/pexels-photo-532224.jpeg?auto=compress&w=400&q=80" usemap="#tshirt-map" alt="T-shirt Diagram">
-          <map name="tshirt-map">
-            <area shape="rect" coords="60,60,120,120" alt="Left Chest" onclick="showPlacement('left-chest')">
-            <area shape="rect" coords="80,180,140,220" alt="Front Center" onclick="showPlacement('front-center')">
-          </map>
-          <div id="placement-info"></div>
         </div>
       </div>
-      <div class="educational-section">
-        <h3>Design That Defines: Building Brand & Culture</h3>
-        <p>
-          <b>Wear Your Identity:</b> Branded items create instant recognition, professionalism, and team unity. Everyday marketing: branded items as "walking billboards".
-        </p>
-        <a href="#requirements" class="cta">Start Your Project</a>
-        <h4>Client Testimonials</h4>
-        <div class="swiper-container testimonials">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="testimonial-block">
-                <img src="https://images.pexels.com/photos/1139743/pexels-photo-1139743.jpeg?auto=compress&w=80&q=80" alt="Client 1" class="testimonial-img">
-                <blockquote>“Our team loved the custom tees—great quality, fast turnaround!”<br><b>- Startup Founder</b></blockquote>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="testimonial-block">
-                <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&w=80&q=80" alt="Client 2" class="testimonial-img">
-                <blockquote>“The branding on our mugs made our event memorable!”<br><b>- Event Organizer</b></blockquote>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-      </div>
-      <div class="educational-section">
-        <h3>Gifts That Last: Cherishing Special Moments</h3>
-        <p>
-          <b>The Art of Gifting:</b> Personalized prints for every occasion—wedding favors, bridal party gifts, "Save the Date" announcements, and startup/event giveaways.
-        </p>
-        <label>Gift Idea Generator:
-          <select id="gift-occasion" onchange="showGiftIdeas()">
-            <option value="">Select Occasion</option>
-            <option value="wedding">Wedding</option>
-            <option value="birthday">Birthday</option>
-            <option value="anniversary">Anniversary</option>
-          </select>
-        </label>
-        <div id="gift-ideas"></div>
-        <h4>Gallery of Wedding/Event Gifts</h4>
-        <div class="gallery">
-          <a data-fancybox="gallery" href="https://images.pexels.com/photos/461382/pexels-photo-461382.jpeg?auto=compress&w=800&q=80"><img src="https://images.pexels.com/photos/461382/pexels-photo-461382.jpeg?auto=compress&w=400&q=80" alt="Wedding Gift"></a>
-          <a data-fancybox="gallery" href="https://images.pexels.com/photos/1300560/pexels-photo-1300560.jpeg?auto=compress&w=800&q=80"><img src="https://images.pexels.com/photos/1300560/pexels-photo-1300560.jpeg?auto=compress&w=400&q=80" alt="Event Gift"></a>
-          <a data-fancybox="gallery" href="https://images.pexels.com/photos/532225/pexels-photo-532225.jpeg?auto=compress&w=800&q=80"><img src="https://images.pexels.com/photos/532225/pexels-photo-532225.jpeg?auto=compress&w=400&q=80" alt="Custom Gift"></a>
-        </div>
-      </div>
-    </section>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
 
-    <!-- Design Types -->
-    <section id="design-types">
-      <h2>Different Types of Design</h2>
-      <div class="design-styles">
-        <h3>Styles</h3>
-        <ul>
-          <li><b>Minimalist:</b> Clean, simple, lots of whitespace.</li>
-          <li><b>Typography-Based:</b> Focus on font and text layout.</li>
-          <li><b>Illustrative:</b> Custom illustrations and artwork.</li>
-          <li><b>Photographic:</b> Uses photos as main element.</li>
-          <li><b>Vintage/Retro:</b> Nostalgic, classic design cues.</li>
-          <li><b>Abstract:</b> Shapes, colors, and textures.</li>
-          <li><b>Geometric:</b> Patterns, lines, and symmetry.</li>
-          <li><b>Hand-drawn/Sketchy:</b> Artistic, casual feel.</li>
-          <li><b>Gothic/Edgy:</b> Dark, bold, dramatic.</li>
-          <li><b>Modern/Futuristic:</b> Sleek, tech-inspired.</li>
-        </ul>
-        <h3>Applications</h3>
-        <ul>
-          <li><b>T-shirt Design:</b> Fit, fabric, purpose-driven.</li>
-          <li><b>Mug Design:</b> Wraparound graphics, handle placement.</li>
-          <li><b>Bottle Design:</b> Ergonomics, viewing angles.</li>
-        </ul>
-      </div>
-    </section>
+  <!-- Gifting: Gifts That Last -->
+  <section id="gifting">
+    <h2>Gifts That Last: Cherishing Special Moments</h2>
+    <p><b>The Art of Gifting:</b> Personalized prints for every occasion—wedding favors, bridal party gifts, "Save the Date" announcements, and startup/event giveaways.</p>
+    <label>Gift Idea Generator:
+      <select id="gift-occasion" onchange="showGiftIdeas()">
+        <option value="">Select Occasion</option>
+        <option value="wedding">Wedding</option>
+        <option value="birthday">Birthday</option>
+        <option value="anniversary">Anniversary</option>
+      </select>
+    </label>
+    <div id="gift-ideas"></div>
+    <h4>Gallery of Wedding/Event Gifts</h4>
+    <div class="gallery">
+      <a data-fancybox="gallery" href="https://images.pexels.com/photos/461382/pexels-photo-461382.jpeg?auto=compress&w=800&q=80"><img src="https://images.pexels.com/photos/461382/pexels-photo-461382.jpeg?auto=compress&w=400&q=80" alt="Wedding Gift"></a>
+      <a data-fancybox="gallery" href="https://images.pexels.com/photos/1300560/pexels-photo-1300560.jpeg?auto=compress&w=800&q=80"><img src="https://images.pexels.com/photos/1300560/pexels-photo-1300560.jpeg?auto=compress&w=400&q=80" alt="Event Gift"></a>
+      <a data-fancybox="gallery" href="https://images.pexels.com/photos/532225/pexels-photo-532225.jpeg?auto=compress&w=800&q=80"><img src="https://images.pexels.com/photos/532225/pexels-photo-532225.jpeg?auto=compress&w=400&q=80" alt="Custom Gift"></a>
+    </div>
+  </section>
 
-    <!-- FAQ & Chatbot -->
-    <section id="faq">
-      <h2>Frequently Asked Questions</h2>
-      <details>
-        <summary>What is your minimum order?</summary>
-        <p>Our minimum order is 10 pieces for custom prints.</p>
-      </details>
-      <details>
-        <summary>How do I share my logo?</summary>
-        <p>Upload via our form or share a Google Drive/WhatsApp link.</p>
-      </details>
-      <details>
-        <summary>Can I get a demo before final print?</summary>
-        <p>Yes, we provide digital mockups before printing.</p>
-      </details>
-      <div class="chatbot-placeholder">
-        <p>Chatbot coming soon!</p>
+  <!-- Design Types -->
+  <section id="design-types">
+    <h2>Different Types of Design</h2>
+    <div class="design-styles">
+      <h3>Styles</h3>
+      <ul>
+        <li><b>Minimalist:</b> Clean, simple, lots of whitespace.</li>
+        <li><b>Typography-Based:</b> Focus on font and text layout.</li>
+        <li><b>Illustrative:</b> Custom illustrations and artwork.</li>
+        <li><b>Photographic:</b> Uses photos as main element.</li>
+        <li><b>Vintage/Retro:</b> Nostalgic, classic design cues.</li>
+        <li><b>Abstract:</b> Shapes, colors, and textures.</li>
+        <li><b>Geometric:</b> Patterns, lines, and symmetry.</li>
+        <li><b>Hand-drawn/Sketchy:</b> Artistic, casual feel.</li>
+        <li><b>Gothic/Edgy:</b> Dark, bold, dramatic.</li>
+        <li><b>Modern/Futuristic:</b> Sleek, tech-inspired.</li>
+      </ul>
+      <h3>Applications</h3>
+      <ul>
+        <li><b>T-shirt Design:</b> Fit, fabric, purpose-driven.</li>
+        <li><b>Mug Design:</b> Wraparound graphics, handle placement.</li>
+        <li><b>Bottle Design:</b> Ergonomics, viewing angles.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <details>
+      <summary>What is your minimum order?</summary>
+      <p>Our minimum order is 10 pieces for custom prints.</p>
+    </details>
+    <details>
+      <summary>How do I share my logo?</summary>
+      <p>Upload via our form or share a Google Drive/WhatsApp link.</p>
+    </details>
+    <details>
+      <summary>Can I get a demo before final print?</summary>
+      <p>Yes, we provide digital mockups before printing.</p>
+    </details>
+  </section>
+
+  <!-- Chatbot Widget -->
+  <div class="chatbot-widget">
+    <button class="chatbot-btn" onclick="toggleChatbot()" title="Chat with us!">💬</button>
+    <div class="chatbot-window" id="chatbotWindow">
+      <div class="chatbot-header">Creative Studio Chat</div>
+      <div class="chatbot-messages" id="chatbotMessages">
+        <div><b>Bot:</b> Hi! How can I help you today?</div>
       </div>
-    </section>
-  </main>
+      <input class="chatbot-input" id="chatbotInput" placeholder="Type your message..." onkeydown="if(event.key==='Enter'){sendChatbotMessage()}">
+    </div>
+  </div>
 
   <footer>
     <p>&copy; 2025 Creative Studio. All rights reserved.</p>
@@ -275,31 +197,6 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
   <script>
-    // Process step details
-    function showDetail(element) {
-      const details = {
-        colour: 'Choose vibrant or subtle colors to match your brand. See examples above.',
-        text: 'Select impactful typography for your message.',
-        placement: 'Decide where your design appears: front, back, sleeve, etc.',
-        'tshirt-colour': 'Pick a base color that complements your design.'
-      };
-      document.getElementById('process-detail').textContent = details[element];
-    }
-    function showFulfillment() {
-      document.getElementById('fulfillment-details').classList.remove('hidden');
-    }
-    function showRevisions() {
-      alert('Let’s revise your design. Return to the design step.');
-    }
-
-    // Requirements form
-    document.getElementById('requirements-form').onsubmit = function(e) {
-      e.preventDefault();
-      document.getElementById('form-success').classList.remove('hidden');
-      setTimeout(() => document.getElementById('form-success').classList.add('hidden'), 3500);
-      this.reset();
-    };
-
     // Swiper sliders
     new Swiper('.swiper-container', {
       loop: true,
@@ -314,19 +211,10 @@
     function quizAnswer(correct) {
       const result = document.getElementById('quiz-result');
       if (correct) {
-        result.innerHTML = '<span style="color:green;">Correct! DTG is best for vibrant, full-color images on cotton.</span><br><a href="#requirements" class="cta">Get a Free Consultation</a>';
+        result.innerHTML = '<span style="color:green;">Correct! DTG is best for vibrant, full-color images on cotton.</span><br><a href="#branding" class="cta">Get a Free Consultation</a>';
       } else {
         result.innerHTML = '<span style="color:red;">Not quite. Try again!</span>';
       }
-    }
-
-    // Placement diagram interactivity
-    function showPlacement(area) {
-      const info = {
-        'left-chest': 'Left Chest: Ideal for subtle branding or logos.',
-        'front-center': 'Front Center: Perfect for bold statements or main artwork.'
-      };
-      document.getElementById('placement-info').textContent = info[area] || '';
     }
 
     // Gift idea generator
@@ -338,6 +226,29 @@
         anniversary: '<ul><li>Matching couple tees</li><li>Engraved mugs</li><li>Custom message bottles</li></ul><a href="#requirements" class="cta">Get a Custom Quote</a>'
       };
       document.getElementById('gift-ideas').innerHTML = ideas[val] || '';
+    }
+
+    // Chatbot logic
+    function toggleChatbot() {
+      document.getElementById('chatbotWindow').classList.toggle('active');
+      setTimeout(() => document.getElementById('chatbotInput').focus(), 200);
+    }
+    function sendChatbotMessage() {
+      const input = document.getElementById('chatbotInput');
+      const messages = document.getElementById('chatbotMessages');
+      const userMsg = input.value.trim();
+      if (!userMsg) return;
+      messages.innerHTML += `<div><b>You:</b> ${userMsg}</div>`;
+      setTimeout(() => {
+        let reply = "I'm here to help! Please leave your contact details and we'll get back to you.";
+        if (/order|price|cost|quote/i.test(userMsg)) reply = "For pricing and quotes, please use our project form or tell me what you need!";
+        if (/mockup|demo/i.test(userMsg)) reply = "We provide digital mockups before final print. Would you like to start a project?";
+        if (/logo|file/i.test(userMsg)) reply = "You can upload your logo via our requirements form or share a link!";
+        messages.innerHTML += `<div><b>Bot:</b> ${reply}</div>`;
+        messages.scrollTop = messages.scrollHeight;
+      }, 800);
+      input.value = '';
+      messages.scrollTop = messages.scrollHeight;
     }
   </script>
 </body>
