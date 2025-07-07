@@ -9,16 +9,65 @@
   <!-- Fancybox for gallery lightbox -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"/>
   <style>
-    body { font-family: 'Inter', Arial, sans-serif; margin: 0; background: #f7f8fa; color: #222; }
-    header { background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-    nav { display: flex; gap: 2rem; padding: 1rem 2rem; justify-content: center; flex-wrap: wrap;}
-    nav a { color: #4f46e5; text-decoration: none; font-weight: 500; padding: 0.5rem 1rem; border-radius: 4px; }
-    nav a:hover { background: #e0e7ff; }
-    section { margin: 2rem auto; max-width: 900px; background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);}
-    h1, h2 { color: #4f46e5; margin-top: 0; }
-    h3 { color: #222; margin-bottom: 0.5rem;}
-    .cta, button { background: #4f46e5; color: #fff; border: none; padding: 0.7rem 1.5rem; border-radius: 4px; font-size: 1rem; cursor: pointer; margin-top: 1rem; transition: background 0.2s; }
-    .cta:hover, button:hover { background: #3730a3; }
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #e0c3fc 0%, #f7f8fa 100%);
+      color: #222;
+      min-height: 100vh;
+    }
+    header {
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    nav {
+      display: flex;
+      gap: 2rem;
+      padding: 1rem 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: #4f46e5;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+    nav a:hover {
+      background: #e0e7ff;
+    }
+    section {
+      margin: 2rem auto;
+      max-width: 900px;
+      background: rgba(255,255,255,0.95);
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px rgba(79,70,229,0.07);
+    }
+    h1, h2 {
+      color: #4f46e5;
+      margin-top: 0;
+    }
+    h3 {
+      color: #222;
+      margin-bottom: 0.5rem;
+    }
+    .cta, button {
+      background: #4f46e5;
+      color: #fff;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background 0.2s;
+    }
+    .cta:hover, button:hover {
+      background: #3730a3;
+    }
     .swiper-container { width: 100%; margin: 2rem 0; }
     .swiper-slide img { width: 100%; border-radius: 8px; }
     .gallery { display: flex; gap: 1rem; flex-wrap: wrap; }
@@ -32,6 +81,37 @@
     .chatbot-header { font-weight: bold; color: #4f46e5; margin-bottom: 0.5rem;}
     .chatbot-messages { max-height: 180px; overflow-y: auto; margin-bottom: 0.5rem;}
     .chatbot-input { width: 100%; padding: 0.5rem; border-radius: 6px; border: 1px solid #eee;}
+    .design-type-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .design-type-card {
+      background: #f3f0ff;
+      border-radius: 10px;
+      padding: 1.2rem 1rem;
+      box-shadow: 0 1px 4px rgba(79,70,229,0.08);
+      transition: box-shadow 0.2s;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    .design-type-card:hover {
+      box-shadow: 0 4px 16px rgba(79,70,229,0.12);
+      border-color: #a5b4fc;
+    }
+    .design-type-card.selected {
+      border-color: #4f46e5;
+      background: #e0e7ff;
+    }
+    .design-type-card h4 {
+      margin: 0 0 0.5rem 0;
+      color: #4f46e5;
+    }
+    .design-type-desc {
+      font-size: 1rem;
+      color: #333;
+    }
     @media (max-width: 700px) {
       section { padding: 1rem; }
       .gallery { justify-content: center; }
@@ -42,140 +122,248 @@
 <body>
   <header>
     <nav>
-      <a href="#expertise">Expertise</a>
-      <a href="#branding">Branding</a>
-      <a href="#gifting">Gifting</a>
+      <a href="#home">Home</a>
+      <a href="#process">Our Process</a>
+      <a href="#requirements">Requirements</a>
+      <a href="#educational">Educational</a>
       <a href="#design-types">Design Types</a>
       <a href="#faq">FAQ</a>
     </nav>
   </header>
 
-  <!-- Expertise/Quiz FIRST, no image at start -->
-  <section id="expertise">
-    <h1>Unlock Your Brand's Potential</h1>
-    <h2>The Art of Apparel & Merchandise Design</h2>
-    <p><b>Mastering the Canvas:</b> Typography, color psychology, layout, and printing methods (screen, DTG, embroidery, sublimation). Avoid common mistakes—our designers optimize every print!</p>
-    <h3>Design 101 Quiz</h3>
-    <div id="quiz-content">
-      <p>Which printing method is best for vibrant, full-color images on cotton T-shirts?</p>
-      <button onclick="quizAnswer(true)">A. Direct-to-Garment (DTG)</button>
-      <button onclick="quizAnswer(false)">B. Embroidery</button>
-      <button onclick="quizAnswer(false)">C. Sublimation</button>
-      <div id="quiz-result"></div>
-    </div>
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <img src="https://images.pexels.com/photos/532220/pexels-photo-532220.jpeg?auto=compress&w=800&q=80" alt="Before design">
-          <p style="text-align:center;">Before</p>
+  <main>
+    <!-- Home/About -->
+    <section id="home" class="hero">
+      <h1>Creative Studio</h1>
+      <p>Custom design, apparel, merchandise & personalized gifts—quality prints, expert branding, and creative solutions for every occasion.</p>
+      <a href="#requirements" class="cta">Start Your Project</a>
+    </section>
+
+    <!-- Our Process -->
+    <section id="process">
+      <h2>Our Process</h2>
+      <div class="process-flow">
+        <div class="process-step" onclick="showDetail('colour')">
+          <span>🎨</span>
+          <p>Colour</p>
         </div>
-        <div class="swiper-slide">
-          <img src="https://images.pexels.com/photos/532221/pexels-photo-532221.jpeg?auto=compress&w=800&q=80" alt="After design">
-          <p style="text-align:center;">After</p>
+        <div class="process-step" onclick="showDetail('text')">
+          <span>📝</span>
+          <p>Text</p>
         </div>
-        <div class="swiper-slide">
-          <img src="https://images.pexels.com/photos/532223/pexels-photo-532223.jpeg?auto=compress&w=800&q=80" alt="Screen Printing">
-          <p style="text-align:center;">Screen Printing</p>
+        <div class="process-step" onclick="showDetail('placement')">
+          <span>📍</span>
+          <p>Placement</p>
         </div>
-        <div class="swiper-slide">
-          <img src="https://images.pexels.com/photos/532225/pexels-photo-532225.jpeg?auto=compress&w=800&q=80" alt="DTG">
-          <p style="text-align:center;">DTG</p>
+        <div class="process-step" onclick="showDetail('tshirt-colour')">
+          <span>👕</span>
+          <p>T-shirt Colour</p>
         </div>
       </div>
-      <div class="swiper-pagination"></div>
-    </div>
-    <h4>Logo & Text Placement Diagram</h4>
-    <img src="https://images.pexels.com/photos/532224/pexels-photo-532224.jpeg?auto=compress&w=400&q=80" alt="T-shirt Diagram" style="width:220px;display:block;margin:1rem auto;">
-  </section>
-
-  <!-- Branding: Design That Defines -->
-  <section id="branding">
-    <h2>Design That Defines: Building Brand & Culture</h2>
-    <p><b>Wear Your Identity:</b> Branded items create instant recognition, professionalism, and team unity. Everyday marketing: branded items as "walking billboards".</p>
-    <a href="#requirements" class="cta">Start Your Project</a>
-    <h4>Client Testimonials</h4>
-    <div class="swiper-container testimonials">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <div class="testimonial-block">
-            <img src="https://images.pexels.com/photos/1139743/pexels-photo-1139743.jpeg?auto=compress&w=80&q=80" alt="Client 1" class="testimonial-img">
-            <blockquote>“Our team loved the custom tees—great quality, fast turnaround!”<br><b>- Startup Founder</b></blockquote>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="testimonial-block">
-            <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&w=80&q=80" alt="Client 2" class="testimonial-img">
-            <blockquote>“The branding on our mugs made our event memorable!”<br><b>- Event Organizer</b></blockquote>
-          </div>
+      <div id="process-detail" class="process-detail"></div>
+      <div class="mockup-demo">
+        <img src="https://dummyimage.com/120x140/cccccc/222&text=Mockup" alt="Demo Mockup">
+        <div>
+          <button onclick="showFulfillment()">If OK</button>
+          <button onclick="showRevisions()">If Not OK</button>
         </div>
       </div>
-      <div class="swiper-pagination"></div>
-    </div>
-  </section>
+      <div id="fulfillment-details" class="hidden">
+        <ul>
+          <li>Put on Blinkstore</li>
+          <li>Final print (Minimum quantity)</li>
+          <li>Demo</li>
+          <li>Dropship in bulk</li>
+        </ul>
+      </div>
+    </section>
 
-  <!-- Gifting: Gifts That Last -->
-  <section id="gifting">
-    <h2>Gifts That Last: Cherishing Special Moments</h2>
-    <p><b>The Art of Gifting:</b> Personalized prints for every occasion—wedding favors, bridal party gifts, "Save the Date" announcements, and startup/event giveaways.</p>
-    <label>Gift Idea Generator:
-      <select id="gift-occasion" onchange="showGiftIdeas()">
-        <option value="">Select Occasion</option>
-        <option value="wedding">Wedding</option>
-        <option value="birthday">Birthday</option>
-        <option value="anniversary">Anniversary</option>
-      </select>
-    </label>
-    <div id="gift-ideas"></div>
-    <h4>Gallery of Wedding/Event Gifts</h4>
-    <div class="gallery">
-      <a data-fancybox="gallery" href="https://images.pexels.com/photos/461382/pexels-photo-461382.jpeg?auto=compress&w=800&q=80"><img src="https://images.pexels.com/photos/461382/pexels-photo-461382.jpeg?auto=compress&w=400&q=80" alt="Wedding Gift"></a>
-      <a data-fancybox="gallery" href="https://images.pexels.com/photos/1300560/pexels-photo-1300560.jpeg?auto=compress&w=800&q=80"><img src="https://images.pexels.com/photos/1300560/pexels-photo-1300560.jpeg?auto=compress&w=400&q=80" alt="Event Gift"></a>
-      <a data-fancybox="gallery" href="https://images.pexels.com/photos/532225/pexels-photo-532225.jpeg?auto=compress&w=800&q=80"><img src="https://images.pexels.com/photos/532225/pexels-photo-532225.jpeg?auto=compress&w=400&q=80" alt="Custom Gift"></a>
-    </div>
-  </section>
+    <!-- Requirements Form -->
+    <section id="requirements">
+      <h2>Submit Your Design Requirements</h2>
+      <form id="requirements-form" autocomplete="off">
+        <label>Reference Link: <input type="url" name="reference" placeholder="https://..."></label>
+        <label>Logo File: <input type="file" name="logo" accept="image/*"></label>
+        <label>Any References? <input type="file" name="references" multiple></label>
+        <label>Placements:
+          <input type="checkbox" name="placement" value="Front"> Front
+          <input type="checkbox" name="placement" value="Back"> Back
+          <input type="checkbox" name="placement" value="Sleeve"> Sleeve
+          <input type="checkbox" name="placement" value="Right"> Right
+          <input type="checkbox" name="placement" value="Left"> Left
+        </label>
+        <label>For What? (Competitor Analysis): <textarea name="purpose"></textarea></label>
+        <label>Colour: <input type="color" name="colour"></label>
+        <label>T-shirt Colour: <input type="color" name="tshirt-colour"></label>
+        <button type="submit">Submit</button>
+        <div id="form-success" class="hidden">Thank you! We’ll review your requirements and get in touch.</div>
+      </form>
+    </section>
 
-  <!-- Design Types -->
-  <section id="design-types">
-    <h2>Different Types of Design</h2>
-    <div class="design-styles">
-      <h3>Styles</h3>
+    <!-- Educational Content -->
+    <section id="educational">
+      <h2>Unlock Your Brand's Potential</h2>
+      <div>
+        <h3>The Art of Apparel & Merchandise Design</h3>
+        <p>
+          <b>Mastering the Canvas:</b> Discover how typography, color psychology, and layout choices can make your merchandise pop. We guide you through the best printing methods—screen, DTG, embroidery, sublimation—and help you avoid common design mistakes.
+        </p>
+        <div class="quiz" style="margin-bottom:2rem;">
+          <h4>Design 101 Quiz</h4>
+          <div id="quiz-content">
+            <p>Which printing method is best for vibrant, full-color images on cotton T-shirts?</p>
+            <button onclick="quizAnswer(true)">A. Direct-to-Garment (DTG)</button>
+            <button onclick="quizAnswer(false)">B. Embroidery</button>
+            <button onclick="quizAnswer(false)">C. Sublimation</button>
+            <div id="quiz-result"></div>
+          </div>
+        </div>
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="https://images.pexels.com/photos/532220/pexels-photo-532220.jpeg?auto=compress&w=800&q=80" alt="Before design">
+              <p style="text-align:center;">Before</p>
+            </div>
+            <div class="swiper-slide">
+              <img src="https://images.pexels.com/photos/532221/pexels-photo-532221.jpeg?auto=compress&w=800&q=80" alt="After design">
+              <p style="text-align:center;">After</p>
+            </div>
+            <div class="swiper-slide">
+              <img src="https://images.pexels.com/photos/532223/pexels-photo-532223.jpeg?auto=compress&w=800&q=80" alt="Screen Printing">
+              <p style="text-align:center;">Screen Printing</p>
+            </div>
+            <div class="swiper-slide">
+              <img src="https://images.pexels.com/photos/532225/pexels-photo-532225.jpeg?auto=compress&w=800&q=80" alt="DTG">
+              <p style="text-align:center;">DTG</p>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+        <div class="interactive-diagram" style="margin-top:2rem;">
+          <h4>Logo & Text Placement Diagram</h4>
+          <img src="https://images.pexels.com/photos/532224/pexels-photo-532224.jpeg?auto=compress&w=400&q=80" alt="T-shirt Diagram" style="width:220px;display:block;margin:1rem auto;">
+          <div style="text-align:center;font-size:0.95rem;color:#4f46e5;">Click areas for tips (coming soon!)</div>
+        </div>
+      </div>
+      <div style="margin-top:2.5rem;">
+        <h3>Design That Defines: Building Brand & Culture</h3>
+        <p>
+          <b>Wear Your Identity:</b> Branded apparel is more than just merch—it's a statement. From startups to weddings, our designs foster unity, spark conversations, and turn teams into walking billboards for your brand.
+        </p>
+        <a href="#requirements" class="cta">Start Your Project</a>
+        <h4 style="margin-top:2rem;">Client Testimonials</h4>
+        <div class="swiper-container testimonials">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="testimonial-block">
+                <img src="https://images.pexels.com/photos/1139743/pexels-photo-1139743.jpeg?auto=compress&w=80&q=80" alt="Client 1" class="testimonial-img">
+                <blockquote>“Our team loved the custom tees—great quality, fast turnaround!”<br><b>- Startup Founder</b></blockquote>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testimonial-block">
+                <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&w=80&q=80" alt="Client 2" class="testimonial-img">
+                <blockquote>“The branding on our mugs made our event memorable!”<br><b>- Event Organizer</b></blockquote>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+      <div style="margin-top:2.5rem;">
+        <h3>Gifts That Last: Cherishing Special Moments</h3>
+        <p>
+          <b>The Art of Gifting:</b> Personalized prints for every occasion—wedding favors, bridal party gifts, "Save the Date" announcements, and event giveaways.
+        </p>
+        <label>Gift Idea Generator:
+          <select id="gift-occasion" onchange="showGiftIdeas()">
+            <option value="">Select Occasion</option>
+            <option value="wedding">Wedding</option>
+            <option value="birthday">Birthday</option>
+            <option value="anniversary">Anniversary</option>
+          </select>
+        </label>
+        <div id="gift-ideas"></div>
+        <h4 style="margin-top:1.5rem;">Gallery of Wedding/Event Gifts</h4>
+        <div class="gallery">
+          <a data-fancybox="gallery" href="https://images.pexels.com/photos/461382/pexels-photo-461382.jpeg?auto=compress&w=800&q=80"><img src="https://images.pexels.com/photos/461382/pexels-photo-461382.jpeg?auto=compress&w=400&q=80" alt="Wedding Gift"></a>
+          <a data-fancybox="gallery" href="https://images.pexels.com/photos/1300560/pexels-photo-1300560.jpeg?auto=compress&w=800&q=80"><img src="https://images.pexels.com/photos/1300560/pexels-photo-1300560.jpeg?auto=compress&w=400&q=80" alt="Event Gift"></a>
+          <a data-fancybox="gallery" href="https://images.pexels.com/photos/532225/pexels-photo-532225.jpeg?auto=compress&w=800&q=80"><img src="https://images.pexels.com/photos/532225/pexels-photo-532225.jpeg?auto=compress&w=400&q=80" alt="Custom Gift"></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Design Types (Interactive Cards) -->
+    <section id="design-types">
+      <h2>Explore Design Styles & Applications</h2>
+      <div class="design-type-grid" id="designTypeGrid">
+        <div class="design-type-card" onclick="selectDesignType(this, 'Minimalist')">
+          <h4>Minimalist</h4>
+          <div class="design-type-desc">Clean, simple, whitespace-focused. Perfect for modern brands and subtle statements.</div>
+        </div>
+        <div class="design-type-card" onclick="selectDesignType(this, 'Typography-Based')">
+          <h4>Typography-Based</h4>
+          <div class="design-type-desc">Fonts and layout take center stage. Ideal for slogans, quotes, or wordmark logos.</div>
+        </div>
+        <div class="design-type-card" onclick="selectDesignType(this, 'Illustrative')">
+          <h4>Illustrative</h4>
+          <div class="design-type-desc">Custom illustrations and artwork for a unique, creative touch.</div>
+        </div>
+        <div class="design-type-card" onclick="selectDesignType(this, 'Photographic')">
+          <h4>Photographic</h4>
+          <div class="design-type-desc">Uses photos as the main element. Great for events, teams, or memories.</div>
+        </div>
+        <div class="design-type-card" onclick="selectDesignType(this, 'Vintage/Retro')">
+          <h4>Vintage/Retro</h4>
+          <div class="design-type-desc">Nostalgic, classic design cues. Popular for themed events and throwbacks.</div>
+        </div>
+        <div class="design-type-card" onclick="selectDesignType(this, 'Abstract')">
+          <h4>Abstract</h4>
+          <div class="design-type-desc">Shapes, colors, and textures for a bold, modern look.</div>
+        </div>
+        <div class="design-type-card" onclick="selectDesignType(this, 'Geometric')">
+          <h4>Geometric</h4>
+          <div class="design-type-desc">Patterns, lines, and symmetry. Works well for tech and contemporary brands.</div>
+        </div>
+        <div class="design-type-card" onclick="selectDesignType(this, 'Hand-drawn/Sketchy')">
+          <h4>Hand-drawn/Sketchy</h4>
+          <div class="design-type-desc">Artistic, casual feel. Adds personality to any item.</div>
+        </div>
+        <div class="design-type-card" onclick="selectDesignType(this, 'Gothic/Edgy')">
+          <h4>Gothic/Edgy</h4>
+          <div class="design-type-desc">Dark, bold, dramatic. For standout, alternative brands.</div>
+        </div>
+        <div class="design-type-card" onclick="selectDesignType(this, 'Modern/Futuristic')">
+          <h4>Modern/Futuristic</h4>
+          <div class="design-type-desc">Sleek, tech-inspired. Perfect for startups and innovation-driven teams.</div>
+        </div>
+      </div>
+      <div id="designTypeInfo" style="font-size:1.1rem;color:#4f46e5;text-align:center;"></div>
+      <h3 style="margin-top:2rem;">Applications</h3>
       <ul>
-        <li><b>Minimalist:</b> Clean, simple, lots of whitespace.</li>
-        <li><b>Typography-Based:</b> Focus on font and text layout.</li>
-        <li><b>Illustrative:</b> Custom illustrations and artwork.</li>
-        <li><b>Photographic:</b> Uses photos as main element.</li>
-        <li><b>Vintage/Retro:</b> Nostalgic, classic design cues.</li>
-        <li><b>Abstract:</b> Shapes, colors, and textures.</li>
-        <li><b>Geometric:</b> Patterns, lines, and symmetry.</li>
-        <li><b>Hand-drawn/Sketchy:</b> Artistic, casual feel.</li>
-        <li><b>Gothic/Edgy:</b> Dark, bold, dramatic.</li>
-        <li><b>Modern/Futuristic:</b> Sleek, tech-inspired.</li>
+        <li><b>T-shirt Design:</b> Fit, fabric, and purpose-driven for comfort and impact.</li>
+        <li><b>Mug Design:</b> Wraparound graphics, handle placement for everyday use.</li>
+        <li><b>Bottle Design:</b> Ergonomics and viewing angles for function and style.</li>
       </ul>
-      <h3>Applications</h3>
-      <ul>
-        <li><b>T-shirt Design:</b> Fit, fabric, purpose-driven.</li>
-        <li><b>Mug Design:</b> Wraparound graphics, handle placement.</li>
-        <li><b>Bottle Design:</b> Ergonomics, viewing angles.</li>
-      </ul>
-    </div>
-  </section>
+    </section>
 
-  <!-- FAQ -->
-  <section id="faq">
-    <h2>Frequently Asked Questions</h2>
-    <details>
-      <summary>What is your minimum order?</summary>
-      <p>Our minimum order is 10 pieces for custom prints.</p>
-    </details>
-    <details>
-      <summary>How do I share my logo?</summary>
-      <p>Upload via our form or share a Google Drive/WhatsApp link.</p>
-    </details>
-    <details>
-      <summary>Can I get a demo before final print?</summary>
-      <p>Yes, we provide digital mockups before printing.</p>
-    </details>
-  </section>
+    <!-- FAQ & Chatbot -->
+    <section id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <details>
+        <summary>What is your minimum order?</summary>
+        <p>Our minimum order is 10 pieces for custom prints.</p>
+      </details>
+      <details>
+        <summary>How do I share my logo?</summary>
+        <p>Upload via our form or share a Google Drive/WhatsApp link.</p>
+      </details>
+      <details>
+        <summary>Can I get a demo before final print?</summary>
+        <p>Yes, we provide digital mockups before printing.</p>
+      </details>
+    </section>
+  </main>
 
   <!-- Chatbot Widget -->
   <div class="chatbot-widget">
@@ -197,6 +385,31 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
   <script>
+    // Process step details
+    function showDetail(element) {
+      const details = {
+        colour: 'Choose vibrant or subtle colors to match your brand. See examples above.',
+        text: 'Select impactful typography for your message.',
+        placement: 'Decide where your design appears: front, back, sleeve, etc.',
+        'tshirt-colour': 'Pick a base color that complements your design.'
+      };
+      document.getElementById('process-detail').textContent = details[element];
+    }
+    function showFulfillment() {
+      document.getElementById('fulfillment-details').classList.remove('hidden');
+    }
+    function showRevisions() {
+      alert('Let’s revise your design. Return to the design step.');
+    }
+
+    // Requirements form
+    document.getElementById('requirements-form').onsubmit = function(e) {
+      e.preventDefault();
+      document.getElementById('form-success').classList.remove('hidden');
+      setTimeout(() => document.getElementById('form-success').classList.add('hidden'), 3500);
+      this.reset();
+    };
+
     // Swiper sliders
     new Swiper('.swiper-container', {
       loop: true,
@@ -211,7 +424,7 @@
     function quizAnswer(correct) {
       const result = document.getElementById('quiz-result');
       if (correct) {
-        result.innerHTML = '<span style="color:green;">Correct! DTG is best for vibrant, full-color images on cotton.</span><br><a href="#branding" class="cta">Get a Free Consultation</a>';
+        result.innerHTML = '<span style="color:green;">Correct! DTG is best for vibrant, full-color images on cotton.</span><br><a href="#requirements" class="cta">Get a Free Consultation</a>';
       } else {
         result.innerHTML = '<span style="color:red;">Not quite. Try again!</span>';
       }
@@ -226,6 +439,25 @@
         anniversary: '<ul><li>Matching couple tees</li><li>Engraved mugs</li><li>Custom message bottles</li></ul><a href="#requirements" class="cta">Get a Custom Quote</a>'
       };
       document.getElementById('gift-ideas').innerHTML = ideas[val] || '';
+    }
+
+    // Interactive Design Types
+    function selectDesignType(card, type) {
+      document.querySelectorAll('.design-type-card').forEach(el => el.classList.remove('selected'));
+      card.classList.add('selected');
+      const info = {
+        'Minimalist': 'Minimalist designs use space, subtle color, and simple shapes to create a sophisticated, modern look. Great for brands that want to feel fresh and uncluttered.',
+        'Typography-Based': 'Typography-based designs let your message shine. We help you choose fonts and layouts that express your brand’s voice.',
+        'Illustrative': 'Illustrative styles add personality and charm with custom artwork. Perfect for playful, creative, or artistic brands.',
+        'Photographic': 'Photographic approaches use real images to tell your story—ideal for events, teams, or showcasing products.',
+        'Vintage/Retro': 'Vintage and retro designs evoke nostalgia and classic vibes, making your merch stand out at themed events.',
+        'Abstract': 'Abstract styles use bold shapes and colors to create eye-catching, modern designs.',
+        'Geometric': 'Geometric designs rely on symmetry and patterns for a clean, tech-inspired feel.',
+        'Hand-drawn/Sketchy': 'Hand-drawn looks add a personal, artisanal touch. Great for small batches, gifts, or unique branding.',
+        'Gothic/Edgy': 'Gothic and edgy designs are dramatic and bold, perfect for alternative or statement-making brands.',
+        'Modern/Futuristic': 'Modern and futuristic styles are sleek and innovative, ideal for startups and forward-thinking teams.'
+      };
+      document.getElementById('designTypeInfo').textContent = info[type] || '';
     }
 
     // Chatbot logic
@@ -244,6 +476,7 @@
         if (/order|price|cost|quote/i.test(userMsg)) reply = "For pricing and quotes, please use our project form or tell me what you need!";
         if (/mockup|demo/i.test(userMsg)) reply = "We provide digital mockups before final print. Would you like to start a project?";
         if (/logo|file/i.test(userMsg)) reply = "You can upload your logo via our requirements form or share a link!";
+        if (/style|design|type/i.test(userMsg)) reply = "Explore our interactive design styles section for inspiration!";
         messages.innerHTML += `<div><b>Bot:</b> ${reply}</div>`;
         messages.scrollTop = messages.scrollHeight;
       }, 800);
