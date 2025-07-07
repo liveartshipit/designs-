@@ -17,6 +17,7 @@
     .hero { background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%); padding: 4rem 2rem; text-align: center; }
     .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
     .hero p { font-size: 1.2rem; margin-bottom: 2rem; }
+    .hero-img { max-width: 400px; width: 100%; border-radius: 16px; margin: 2rem auto 0; box-shadow: 0 4px 16px rgba(0,0,0,0.07);}
     button, .cta { background: #4f46e5; color: #fff; border: none; padding: 0.7rem 1.5rem; border-radius: 4px; font-size: 1rem; cursor: pointer; margin-top: 1rem; transition: background 0.2s; }
     button:hover, .cta:hover { background: #3730a3; }
     section { margin: 2rem auto; max-width: 900px; background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);}
@@ -27,7 +28,7 @@
     .process-step span { font-size: 2rem;}
     .process-detail { margin: 1rem 0; min-height: 40px; color: #333; }
     .mockup-demo { display: flex; align-items: center; gap: 1.5rem; margin: 2rem 0; }
-    .mockup-demo img { width: 120px; border-radius: 8px; border: 1px solid #ddd;}
+    .mockup-demo img { width: 160px; border-radius: 8px; border: 1px solid #ddd;}
     .hidden { display: none; }
     form label { display: block; margin: 1rem 0 0.3rem; }
     form input, form textarea, form select { width: 100%; padding: 0.5rem; margin-bottom: 0.7rem; border: 1px solid #ccc; border-radius: 4px; }
@@ -39,11 +40,15 @@
     .design-styles li { margin-bottom: 0.7rem; }
     details { margin-bottom: 1rem; }
     .chatbot-placeholder { background: #f3f0ff; color: #4f46e5; padding: 1rem; border-radius: 6px; text-align: center; }
-    footer { text-align: center; padding: 2rem 0 1rem; color: #888; background: #fff; border-top: 1px solid #eee; margin-top: 2rem;}
+    .gallery { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .gallery a img { border-radius: 8px; width: 120px; height: 80px; object-fit: cover; border: 1px solid #eee;}
+    .testimonial-img { border-radius: 50%; width: 48px; height: 48px; object-fit: cover; border: 2px solid #4f46e5; margin-right: 1rem; vertical-align: middle;}
+    .testimonial-block { display: flex; align-items: center; }
     @media (max-width: 700px) {
       section { padding: 1rem; }
       .process-flow { flex-direction: column; align-items: center; }
       .mockup-demo { flex-direction: column; align-items: flex-start; }
+      .gallery { justify-content: center; }
     }
   </style>
 </head>
@@ -64,6 +69,7 @@
     <section id="home" class="hero">
       <h1>Creative Studio</h1>
       <p>Custom design, apparel, merchandise & personalized gifts—quality prints, expert branding, and creative solutions for every occasion.</p>
+      <img class="hero-img" src="https://images.pexels.com/photos/532220/pexels-photo-532220.jpeg?auto=compress&w=800&q=80" alt="Creative apparel studio workspace">
       <a href="#requirements" class="cta">Start Your Project</a>
     </section>
 
@@ -90,7 +96,7 @@
       </div>
       <div id="process-detail" class="process-detail"></div>
       <div class="mockup-demo">
-        <img src="https://dummyimage.com/120x140/cccccc/222&text=Mockup" alt="Demo Mockup">
+        <img src="https://images.pexels.com/photos/532221/pexels-photo-532221.jpeg?auto=compress&w=400&q=80" alt="T-shirt design mockup">
         <div>
           <button onclick="showFulfillment()">If OK</button>
           <button onclick="showRevisions()">If Not OK</button>
@@ -113,6 +119,7 @@
         <label>Reference Link: <input type="url" name="reference" placeholder="https://..."></label>
         <label>Logo File: <input type="file" name="logo" accept="image/*"></label>
         <label>Any References? <input type="file" name="references" multiple></label>
+        <label>Describe Your Idea: <textarea name="idea" placeholder="Tell us about your vision, theme, or any inspiration..."></textarea></label>
         <label>Placements:
           <input type="checkbox" name="placement" value="Front"> Front
           <input type="checkbox" name="placement" value="Back"> Back
@@ -148,16 +155,16 @@
         </div>
         <div class="swiper-container">
           <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="https://dummyimage.com/400x250/cccccc/222&text=Before"><p>Before</p></div>
-            <div class="swiper-slide"><img src="https://dummyimage.com/400x250/8ec5fc/fff&text=After"><p>After</p></div>
-            <div class="swiper-slide"><img src="https://dummyimage.com/400x250/e0c3fc/333&text=Screen+Printing"><p>Screen Printing</p></div>
-            <div class="swiper-slide"><img src="https://dummyimage.com/400x250/cccccc/222&text=DTG"><p>DTG</p></div>
+            <div class="swiper-slide"><img src="https://images.pexels.com/photos/532220/pexels-photo-532220.jpeg?auto=compress&w=800&q=80" alt="Before design"><p>Before</p></div>
+            <div class="swiper-slide"><img src="https://images.pexels.com/photos/532221/pexels-photo-532221.jpeg?auto=compress&w=800&q=80" alt="After design"><p>After</p></div>
+            <div class="swiper-slide"><img src="https://images.pexels.com/photos/532223/pexels-photo-532223.jpeg?auto=compress&w=800&q=80" alt="Screen Printing"><p>Screen Printing</p></div>
+            <div class="swiper-slide"><img src="https://images.pexels.com/photos/532225/pexels-photo-532225.jpeg?auto=compress&w=800&q=80" alt="DTG"><p>DTG</p></div>
           </div>
           <div class="swiper-pagination"></div>
         </div>
         <div class="interactive-diagram">
           <h4>Logo & Text Placement Diagram</h4>
-          <img src="https://dummyimage.com/220x250/cccccc/333&text=T-shirt+Diagram" usemap="#tshirt-map" alt="T-shirt Diagram">
+          <img src="https://images.pexels.com/photos/532224/pexels-photo-532224.jpeg?auto=compress&w=400&q=80" usemap="#tshirt-map" alt="T-shirt Diagram">
           <map name="tshirt-map">
             <area shape="rect" coords="60,60,120,120" alt="Left Chest" onclick="showPlacement('left-chest')">
             <area shape="rect" coords="80,180,140,220" alt="Front Center" onclick="showPlacement('front-center')">
@@ -175,10 +182,16 @@
         <div class="swiper-container testimonials">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <blockquote>“Our team loved the custom tees—great quality, fast turnaround!”<br><b>- Startup Founder</b></blockquote>
+              <div class="testimonial-block">
+                <img src="https://images.pexels.com/photos/1139743/pexels-photo-1139743.jpeg?auto=compress&w=80&q=80" alt="Client 1" class="testimonial-img">
+                <blockquote>“Our team loved the custom tees—great quality, fast turnaround!”<br><b>- Startup Founder</b></blockquote>
+              </div>
             </div>
             <div class="swiper-slide">
-              <blockquote>“The branding on our mugs made our event memorable!”<br><b>- Event Organizer</b></blockquote>
+              <div class="testimonial-block">
+                <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&w=80&q=80" alt="Client 2" class="testimonial-img">
+                <blockquote>“The branding on our mugs made our event memorable!”<br><b>- Event Organizer</b></blockquote>
+              </div>
             </div>
           </div>
           <div class="swiper-pagination"></div>
@@ -199,9 +212,10 @@
         </label>
         <div id="gift-ideas"></div>
         <h4>Gallery of Wedding/Event Gifts</h4>
-        <div>
-          <a data-fancybox="gallery" href="https://dummyimage.com/400x250/e0c3fc/333&text=Wedding+Gift"><img src="https://dummyimage.com/120x80/e0c3fc/333&text=Wedding+Gift" alt="Wedding Gift"></a>
-          <a data-fancybox="gallery" href="https://dummyimage.com/400x250/8ec5fc/fff&text=Event+Gift"><img src="https://dummyimage.com/120x80/8ec5fc/fff&text=Event+Gift" alt="Event Gift"></a>
+        <div class="gallery">
+          <a data-fancybox="gallery" href="https://images.pexels.com/photos/461382/pexels-photo-461382.jpeg?auto=compress&w=800&q=80"><img src="https://images.pexels.com/photos/461382/pexels-photo-461382.jpeg?auto=compress&w=400&q=80" alt="Wedding Gift"></a>
+          <a data-fancybox="gallery" href="https://images.pexels.com/photos/1300560/pexels-photo-1300560.jpeg?auto=compress&w=800&q=80"><img src="https://images.pexels.com/photos/1300560/pexels-photo-1300560.jpeg?auto=compress&w=400&q=80" alt="Event Gift"></a>
+          <a data-fancybox="gallery" href="https://images.pexels.com/photos/532225/pexels-photo-532225.jpeg?auto=compress&w=800&q=80"><img src="https://images.pexels.com/photos/532225/pexels-photo-532225.jpeg?auto=compress&w=400&q=80" alt="Custom Gift"></a>
         </div>
       </div>
     </section>
