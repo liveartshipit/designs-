@@ -4,118 +4,398 @@
   <meta charset="UTF-8">
   <title>Creative Studio – Custom Apparel & Merchandise Design</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@600;900&display=swap" rel="stylesheet">
   <!-- Swiper.js for carousel/slider -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
   <!-- Fancybox for gallery lightbox -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"/>
   <style>
-    body {
-      font-family: 'Inter', Arial, sans-serif;
-      margin: 0;
-      background: linear-gradient(135deg, #e0c3fc 0%, #f7f8fa 100%);
-      color: #222;
+    :root {
+      --primary: #4f46e5;
+      --primary-light: #a5b4fc;
+      --accent: #e0c3fc;
+      --bg: #f7f8fa;
+      --card: #fff;
+      --radius: 18px;
+      --shadow: 0 4px 24px rgba(79,70,229,0.10);
+      --font-main: 'Inter', Arial, sans-serif;
+      --font-head: 'Montserrat', 'Inter', Arial, sans-serif;
+    }
+    html, body {
+      margin: 0; padding: 0;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--bg) 100%);
       min-height: 100vh;
+      font-family: var(--font-main);
+      color: #222;
+      scroll-behavior: smooth;
     }
     header {
-      background: #fff;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      background: var(--card);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
     nav {
       display: flex;
-      gap: 2rem;
-      padding: 1rem 2rem;
+      gap: 2.5rem;
+      padding: 1.2rem 2rem;
       justify-content: center;
-      flex-wrap: wrap;
+      align-items: center;
+      font-family: var(--font-head);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      font-size: 1.1rem;
+      background: var(--card);
     }
     nav a {
-      color: #4f46e5;
+      color: var(--primary);
       text-decoration: none;
-      font-weight: 500;
       padding: 0.5rem 1rem;
-      border-radius: 4px;
-      transition: background 0.2s;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+      text-align: center;
     }
     nav a:hover {
-      background: #e0e7ff;
+      background: var(--accent);
+      color: #222;
+    }
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
     }
     section {
-      margin: 2rem auto;
-      max-width: 900px;
-      background: rgba(255,255,255,0.95);
-      padding: 2rem;
-      border-radius: 16px;
-      box-shadow: 0 2px 16px rgba(79,70,229,0.07);
+      margin: 2.5rem auto;
+      width: 100%;
+      max-width: 950px;
+      background: var(--card);
+      padding: 2.5rem 2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     h1, h2 {
-      color: #4f46e5;
+      font-family: var(--font-head);
+      font-weight: 900;
+      letter-spacing: 0.02em;
+      text-align: center;
       margin-top: 0;
     }
-    h3 {
-      color: #222;
+    h1 {
+      font-size: 2.6rem;
+      color: var(--primary);
       margin-bottom: 0.5rem;
     }
+    h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1.2rem;
+    }
+    h3 {
+      font-family: var(--font-head);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 0.7rem;
+      margin-top: 1.5rem;
+      letter-spacing: 0.01em;
+      text-align: center;
+    }
+    h4 {
+      font-family: var(--font-main);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+      text-align: center;
+    }
+    p, ul, li {
+      font-size: 1.08rem;
+      line-height: 1.7;
+      margin: 0 0 1.1rem 0;
+      color: #222;
+      text-align: center;
+      font-family: var(--font-main);
+    }
+    ul { padding-left: 1.1em;}
     .cta, button {
-      background: #4f46e5;
+      background: var(--primary);
       color: #fff;
       border: none;
-      padding: 0.7rem 1.5rem;
-      border-radius: 4px;
-      font-size: 1rem;
+      padding: 0.75rem 1.7rem;
+      border-radius: 5px;
+      font-size: 1.08rem;
+      font-family: var(--font-head);
+      font-weight: 600;
+      letter-spacing: 0.03em;
       cursor: pointer;
       margin-top: 1rem;
       transition: background 0.2s;
+      box-shadow: 0 2px 8px rgba(79,70,229,0.06);
     }
     .cta:hover, button:hover {
       background: #3730a3;
     }
-    .swiper-container { width: 100%; margin: 2rem 0; }
-    .swiper-slide img { width: 100%; border-radius: 8px; }
-    .gallery { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .gallery a img { border-radius: 8px; width: 120px; height: 80px; object-fit: cover; border: 1px solid #eee;}
-    .testimonial-img { border-radius: 50%; width: 48px; height: 48px; object-fit: cover; border: 2px solid #4f46e5; margin-right: 1rem; vertical-align: middle;}
-    .testimonial-block { display: flex; align-items: center; }
-    .chatbot-widget { position: fixed; bottom: 24px; right: 24px; z-index: 999; }
-    .chatbot-btn { background: #4f46e5; color: #fff; border-radius: 50%; width: 56px; height: 56px; border: none; font-size: 2rem; box-shadow: 0 4px 16px rgba(0,0,0,0.18); cursor: pointer; }
-    .chatbot-window { display: none; position: absolute; bottom: 70px; right: 0; width: 320px; background: #fff; border-radius: 12px; box-shadow: 0 2px 16px rgba(0,0,0,0.18); padding: 1rem; }
-    .chatbot-window.active { display: block; }
-    .chatbot-header { font-weight: bold; color: #4f46e5; margin-bottom: 0.5rem;}
-    .chatbot-messages { max-height: 180px; overflow-y: auto; margin-bottom: 0.5rem;}
-    .chatbot-input { width: 100%; padding: 0.5rem; border-radius: 6px; border: 1px solid #eee;}
+    /* Process Section */
+    .process-flow {
+      display: flex;
+      gap: 2.3rem;
+      justify-content: center;
+      margin: 2rem 0 1rem 0;
+      flex-wrap: wrap;
+    }
+    .process-step {
+      background: var(--accent);
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 10px rgba(79,70,229,0.10);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      font-size: 1.1rem;
+      border: 2px solid transparent;
+    }
+    .process-step:hover, .process-step.active {
+      transform: scale(1.07);
+      background: var(--primary-light);
+      border-color: var(--primary);
+      box-shadow: 0 4px 20px rgba(79,70,229,0.15);
+    }
+    .process-step span {
+      font-size: 2.2rem;
+      margin-bottom: 0.3rem;
+      color: var(--primary);
+    }
+    .process-detail {
+      min-height: 38px;
+      font-size: 1.08rem;
+      color: #333;
+      text-align: center;
+      margin-bottom: 1.2rem;
+      font-style: italic;
+      transition: color 0.2s;
+    }
+    .mockup-demo {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin: 2rem 0;
+      justify-content: center;
+      width: 100%;
+    }
+    .mockup-demo img {
+      width: 120px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      background: #f7f8fa;
+    }
+    .hidden { display: none; }
+    /* Educational Section */
+    .edu-highlight {
+      background: var(--accent);
+      padding: 1.3rem 1rem;
+      border-radius: 12px;
+      margin: 1.5rem 0;
+      box-shadow: 0 1px 8px rgba(79,70,229,0.07);
+      font-size: 1.09rem;
+      color: #333;
+      text-align: center;
+      font-style: italic;
+    }
     .design-type-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 2rem;
+      gap: 1.2rem;
+      margin: 1.5rem 0 0.8rem 0;
+      width: 100%;
+      justify-content: center;
     }
     .design-type-card {
-      background: #f3f0ff;
-      border-radius: 10px;
+      background: #fff;
+      border-radius: 12px;
       padding: 1.2rem 1rem;
       box-shadow: 0 1px 4px rgba(79,70,229,0.08);
-      transition: box-shadow 0.2s;
+      transition: box-shadow 0.2s, border 0.2s, background 0.2s;
       cursor: pointer;
       border: 2px solid transparent;
+      text-align: center;
+      font-family: var(--font-main);
     }
-    .design-type-card:hover {
-      box-shadow: 0 4px 16px rgba(79,70,229,0.12);
-      border-color: #a5b4fc;
-    }
-    .design-type-card.selected {
-      border-color: #4f46e5;
-      background: #e0e7ff;
+    .design-type-card:hover, .design-type-card.selected {
+      box-shadow: 0 4px 16px rgba(79,70,229,0.14);
+      border-color: var(--primary);
+      background: var(--primary-light);
+      color: #222;
     }
     .design-type-card h4 {
       margin: 0 0 0.5rem 0;
-      color: #4f46e5;
+      color: var(--primary);
+      font-size: 1.13rem;
+      font-family: var(--font-head);
+      font-weight: 700;
+      letter-spacing: 0.01em;
     }
     .design-type-desc {
       font-size: 1rem;
       color: #333;
+      font-family: var(--font-main);
     }
-    @media (max-width: 700px) {
-      section { padding: 1rem; }
-      .gallery { justify-content: center; }
+    #printMethodInfo {
+      min-height: 36px;
+      margin-top: 0.7rem;
+      font-size: 1.09rem;
+      color: var(--primary);
+      text-align: center;
+      font-style: italic;
+      transition: color 0.2s;
+    }
+    /* Quiz Modal */
+    #quiz-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(79,70,229,0.13);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+    #quiz-modal .modal-content {
+      background: #fff;
+      max-width: 420px;
+      margin: auto;
+      padding: 2rem 1.5rem;
+      border-radius: 18px;
+      box-shadow: 0 2px 24px rgba(79,70,229,0.13);
+      position: relative;
+      text-align: center;
+      font-family: var(--font-main);
+      animation: fadeIn 0.3s;
+    }
+    #quiz-modal button.close {
+      position: absolute;
+      top: 10px; right: 18px;
+      background: none; border: none;
+      font-size: 1.7rem; color: #aaa; cursor: pointer;
+      font-weight: 700;
+    }
+    #edu-quiz button {
+      margin: 0.5rem 0.2rem;
+      width: 90%;
+      max-width: 320px;
+      padding: 0.7rem 0.5rem;
+      font-size: 1.07rem;
+      background: var(--primary-light);
+      color: #222;
+      border: none;
+      border-radius: 7px;
+      font-family: var(--font-main);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    #edu-quiz button:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+    /* Chatbot */
+    .chatbot-widget {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+    }
+    .chatbot-btn {
+      background: var(--primary);
+      color: #fff;
+      border-radius: 50%;
+      width: 56px;
+      height: 56px;
+      border: none;
+      font-size: 2rem;
+      box-shadow: 0 4px 16px rgba(79,70,229,0.18);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .chatbot-btn:hover { background: #3730a3;}
+    .chatbot-window {
+      display: none;
+      position: absolute;
+      bottom: 70px;
+      right: 0;
+      width: 330px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px rgba(79,70,229,0.18);
+      padding: 1.3rem 1rem 1rem 1rem;
+      font-family: var(--font-main);
+      animation: fadeIn 0.3s;
+    }
+    .chatbot-window.active { display: block; }
+    .chatbot-header {
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      text-align: center;
+      font-size: 1.15rem;
+      letter-spacing: 0.01em;
+    }
+    .chatbot-messages {
+      max-height: 180px;
+      overflow-y: auto;
+      margin-bottom: 0.5rem;
+      font-size: 1.01rem;
+      color: #222;
+      text-align: left;
+      padding-right: 2px;
+    }
+    .chatbot-input {
+      width: 100%;
+      padding: 0.5rem;
+      border-radius: 6px;
+      border: 1px solid #eee;
+      font-family: var(--font-main);
+      font-size: 1.05rem;
+    }
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 0 1rem;
+      color: #888;
+      background: var(--card);
+      border-top: 1px solid #eee;
+      margin-top: 2rem;
+      font-size: 0.98rem;
+      font-family: var(--font-main);
+      letter-spacing: 0.02em;
+    }
+    /* Responsive */
+    @media (max-width: 800px) {
+      section { padding: 1.2rem; }
+      nav { gap: 1.1rem; font-size: 1rem;}
+      .process-flow { gap: 1.1rem;}
+      .design-type-grid { grid-template-columns: 1fr 1fr;}
+      #quiz-modal .modal-content { padding: 1.2rem 0.7rem;}
       .chatbot-window { width: 95vw; right: 0; }
+    }
+    @media (max-width: 550px) {
+      h1 { font-size: 2rem;}
+      h2 { font-size: 1.3rem;}
+      .design-type-grid { grid-template-columns: 1fr;}
+      .mockup-demo { flex-direction: column; gap: 0.8rem;}
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px);}
+      to { opacity: 1; transform: translateY(0);}
     }
   </style>
 </head>
@@ -135,7 +415,9 @@
     <!-- Home/About -->
     <section id="home" class="hero">
       <h1>Creative Studio</h1>
-      <p>Custom design, apparel, merchandise & personalized gifts—quality prints, expert branding, and creative solutions for every occasion.</p>
+      <p style="font-size:1.22rem; max-width: 600px; margin: 0 auto 1.5rem auto; font-style: italic; color: #444;">
+        Custom design, apparel, merchandise & personalized gifts—quality prints, expert branding, and creative solutions for every occasion.
+      </p>
       <a href="#requirements" class="cta">Start Your Project</a>
     </section>
 
@@ -181,114 +463,111 @@
     <!-- Requirements Form -->
     <section id="requirements">
       <h2>Submit Your Design Requirements</h2>
-      <form id="requirements-form" autocomplete="off">
-        <label>Reference Link: <input type="url" name="reference" placeholder="https://..."></label>
-        <label>Logo File: <input type="file" name="logo" accept="image/*"></label>
-        <label>Any References? <input type="file" name="references" multiple></label>
-        <label>Placements:
+      <form id="requirements-form" autocomplete="off" style="width:100%;max-width:500px;margin:0 auto;">
+        <label style="text-align:left;display:block;">Reference Link:
+          <input type="url" name="reference" placeholder="https://..." required>
+        </label>
+        <label style="text-align:left;display:block;">Logo File:
+          <input type="file" name="logo" accept="image/*">
+        </label>
+        <label style="text-align:left;display:block;">Any References?
+          <input type="file" name="references" multiple>
+        </label>
+        <label style="text-align:left;display:block;">Placements:
           <input type="checkbox" name="placement" value="Front"> Front
           <input type="checkbox" name="placement" value="Back"> Back
           <input type="checkbox" name="placement" value="Sleeve"> Sleeve
           <input type="checkbox" name="placement" value="Right"> Right
           <input type="checkbox" name="placement" value="Left"> Left
         </label>
-        <label>For What? (Competitor Analysis): <textarea name="purpose"></textarea></label>
-        <label>Colour: <input type="color" name="colour"></label>
-        <label>T-shirt Colour: <input type="color" name="tshirt-colour"></label>
-        <button type="submit">Submit</button>
-        <div id="form-success" class="hidden">Thank you! We’ll review your requirements and get in touch.</div>
+        <label style="text-align:left;display:block;">For What? (Competitor Analysis):
+          <textarea name="purpose"></textarea>
+        </label>
+        <label style="text-align:left;display:block;">Colour:
+          <input type="color" name="colour">
+        </label>
+        <label style="text-align:left;display:block;">T-shirt Colour:
+          <input type="color" name="tshirt-colour">
+        </label>
+        <button type="submit" style="margin:auto;display:block;">Submit</button>
+        <div id="form-success" class="hidden" style="color:var(--primary);font-weight:600;margin-top:1rem;">Thank you! We’ll review your requirements and get in touch.</div>
       </form>
     </section>
 
-    <!-- Educational Content -->
+    <!-- EDUCATIONAL SECTION: Unlock Your Brand's Potential -->
     <section id="educational">
       <h2>Unlock Your Brand's Potential</h2>
       <div>
-        <h3>The Art of Apparel & Merchandise Design</h3>
+        <h3>Print-On-Demand (POD) & Apparel Printing: Your Brand’s Secret Weapon</h3>
         <p>
-          <b>Mastering the Canvas:</b> Discover how typography, color psychology, and layout choices can make your merchandise pop. We guide you through the best printing methods—screen, DTG, embroidery, sublimation—and help you avoid common design mistakes.
+          <span style="font-weight:600;color:var(--primary);">Print-on-demand</span> lets you launch, test, and scale branded merch with no inventory risk. But <b>which print method fits your vision?</b> Discover the options every marketer and creator should know:
         </p>
-        <div class="quiz" style="margin-bottom:2rem;">
-          <h4>Design 101 Quiz</h4>
-          <div id="quiz-content">
-            <p>Which printing method is best for vibrant, full-color images on cotton T-shirts?</p>
-            <button onclick="quizAnswer(true)">A. Direct-to-Garment (DTG)</button>
-            <button onclick="quizAnswer(false)">B. Embroidery</button>
-            <button onclick="quizAnswer(false)">C. Sublimation</button>
-            <div id="quiz-result"></div>
+        <div class="edu-highlight">
+          <b>Why Printing Method Matters:</b><br>
+          <span style="font-weight:400;">
+            The right print means <span style="color:var(--primary);font-weight:600;">vivid colors</span>, <span style="color:var(--primary);font-weight:600;">lasting impressions</span>, and <span style="color:var(--primary);font-weight:600;">happy customers</span>. Choose smart for your campaign goals, budget, and audience!
+          </span>
+        </div>
+        <h4 style="margin-top:2rem;">Popular Printing Methods <span style="font-size:1rem;color:#888;">(Click to Learn More)</span></h4>
+        <div class="design-type-grid" id="printMethodGrid">
+          <div class="design-type-card" onclick="showPrintInfo('Screen Printing')">
+            <h4>Screen Printing</h4>
+            <div class="design-type-desc">Bold, durable, best for bulk. Great for simple logos and events.</div>
+          </div>
+          <div class="design-type-card" onclick="showPrintInfo('DTG Printing')">
+            <h4>Direct-to-Garment (DTG)</h4>
+            <div class="design-type-desc">Photorealistic, detailed. Small runs, unlimited colors, perfect for campaigns and limited editions.</div>
+          </div>
+          <div class="design-type-card" onclick="showPrintInfo('Dye Sublimation')">
+            <h4>Dye Sublimation</h4>
+            <div class="design-type-desc">All-over prints, vibrant colors, best for polyester. Ideal for athletic and full-coverage designs.</div>
+          </div>
+          <div class="design-type-card" onclick="showPrintInfo('DTF Printing')">
+            <h4>Direct-to-Film (DTF)</h4>
+            <div class="design-type-desc">Flexible, bright, works on most fabrics. Great for detailed, colorful designs on any garment.</div>
+          </div>
+          <div class="design-type-card" onclick="showPrintInfo('Heat Transfer')">
+            <h4>Heat Transfer</h4>
+            <div class="design-type-desc">Fast, affordable, perfect for photos and small personalized runs.</div>
+          </div>
+          <div class="design-type-card" onclick="showPrintInfo('Embroidery')">
+            <h4>Embroidery</h4>
+            <div class="design-type-desc">Premium, textured, best for logos on uniforms, hats, and polos.</div>
+          </div>
+          <div class="design-type-card" onclick="showPrintInfo('Puff Printing')">
+            <h4>Puff Printing</h4>
+            <div class="design-type-desc">3D, tactile, bold. Great for standout logos and streetwear drops.</div>
           </div>
         </div>
-        <div class="swiper-container">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <img src="https://images.pexels.com/photos/532220/pexels-photo-532220.jpeg?auto=compress&w=800&q=80" alt="Before design">
-              <p style="text-align:center;">Before</p>
-            </div>
-            <div class="swiper-slide">
-              <img src="https://images.pexels.com/photos/532221/pexels-photo-532221.jpeg?auto=compress&w=800&q=80" alt="After design">
-              <p style="text-align:center;">After</p>
-            </div>
-            <div class="swiper-slide">
-              <img src="https://images.pexels.com/photos/532223/pexels-photo-532223.jpeg?auto=compress&w=800&q=80" alt="Screen Printing">
-              <p style="text-align:center;">Screen Printing</p>
-            </div>
-            <div class="swiper-slide">
-              <img src="https://images.pexels.com/photos/532225/pexels-photo-532225.jpeg?auto=compress&w=800&q=80" alt="DTG">
-              <p style="text-align:center;">DTG</p>
-            </div>
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-        <div class="interactive-diagram" style="margin-top:2rem;">
-          <h4>Logo & Text Placement Diagram</h4>
-          <img src="https://images.pexels.com/photos/532224/pexels-photo-532224.jpeg?auto=compress&w=400&q=80" alt="T-shirt Diagram" style="width:220px;display:block;margin:1rem auto;">
-          <div style="text-align:center;font-size:0.95rem;color:#4f46e5;">Click areas for tips (coming soon!)</div>
+        <div id="printMethodInfo"></div>
+      </div>
+      <div style="margin-top:2.2rem;">
+        <h3>Marketing Insights: Picking the Right Print for Your Campaign</h3>
+        <ul style="text-align:left;max-width:650px;margin:0 auto;">
+          <li><b>Bulk Giveaways & Events:</b> <span style="color:var(--primary);">Screen Printing</span> keeps costs low and colors bold for maximum brand visibility.</li>
+          <li><b>Limited Drops & Influencer Merch:</b> <span style="color:var(--primary);">DTG</span> or <span style="color:var(--primary);">DTF</span> lets you offer complex, colorful designs in small batches.</li>
+          <li><b>Corporate Apparel & Team Uniforms:</b> <span style="color:var(--primary);">Embroidery</span> signals quality and professionalism.</li>
+          <li><b>Sports & All-Over Designs:</b> <span style="color:var(--primary);">Dye Sublimation</span> is unbeatable for vibrant, edge-to-edge prints on polyester jerseys.</li>
+          <li><b>Personalized Gifts:</b> <span style="color:var(--primary);">Heat Transfer</span> and <span style="color:var(--primary);">Puff Printing</span> make one-offs and creative effects easy.</li>
+        </ul>
+        <div class="edu-highlight" style="margin-top:1.5rem;">
+          <b>Want to see which print matches your vision?</b><br>
+          <button class="cta" onclick="document.getElementById('quiz-modal').style.display='flex'">Take the Print Method Quiz</button>
         </div>
       </div>
-      <div style="margin-top:2.5rem;">
-        <h3>Design That Defines: Building Brand & Culture</h3>
-        <p>
-          <b>Wear Your Identity:</b> Branded apparel is more than just merch—it's a statement. From startups to weddings, our designs foster unity, spark conversations, and turn teams into walking billboards for your brand.
-        </p>
-        <a href="#requirements" class="cta">Start Your Project</a>
-        <h4 style="margin-top:2rem;">Client Testimonials</h4>
-        <div class="swiper-container testimonials">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="testimonial-block">
-                <img src="https://images.pexels.com/photos/1139743/pexels-photo-1139743.jpeg?auto=compress&w=80&q=80" alt="Client 1" class="testimonial-img">
-                <blockquote>“Our team loved the custom tees—great quality, fast turnaround!”<br><b>- Startup Founder</b></blockquote>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="testimonial-block">
-                <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&w=80&q=80" alt="Client 2" class="testimonial-img">
-                <blockquote>“The branding on our mugs made our event memorable!”<br><b>- Event Organizer</b></blockquote>
-              </div>
-            </div>
+      <!-- Modal Quiz -->
+      <div id="quiz-modal">
+        <div class="modal-content">
+          <button class="close" onclick="document.getElementById('quiz-modal').style.display='none'">&times;</button>
+          <h3 style="color:var(--primary);">Find Your Perfect Print Method</h3>
+          <div id="edu-quiz">
+            <p><b>What’s your top priority?</b></p>
+            <button onclick="showQuizResult('cost')">Lowest cost for big orders</button>
+            <button onclick="showQuizResult('detail')">Full-color, detailed designs</button>
+            <button onclick="showQuizResult('premium')">Premium look & feel</button>
+            <button onclick="showQuizResult('effects')">Special effects (3D, texture)</button>
           </div>
-          <div class="swiper-pagination"></div>
-        </div>
-      </div>
-      <div style="margin-top:2.5rem;">
-        <h3>Gifts That Last: Cherishing Special Moments</h3>
-        <p>
-          <b>The Art of Gifting:</b> Personalized prints for every occasion—wedding favors, bridal party gifts, "Save the Date" announcements, and event giveaways.
-        </p>
-        <label>Gift Idea Generator:
-          <select id="gift-occasion" onchange="showGiftIdeas()">
-            <option value="">Select Occasion</option>
-            <option value="wedding">Wedding</option>
-            <option value="birthday">Birthday</option>
-            <option value="anniversary">Anniversary</option>
-          </select>
-        </label>
-        <div id="gift-ideas"></div>
-        <h4 style="margin-top:1.5rem;">Gallery of Wedding/Event Gifts</h4>
-        <div class="gallery">
-          <a data-fancybox="gallery" href="https://images.pexels.com/photos/461382/pexels-photo-461382.jpeg?auto=compress&w=800&q=80"><img src="https://images.pexels.com/photos/461382/pexels-photo-461382.jpeg?auto=compress&w=400&q=80" alt="Wedding Gift"></a>
-          <a data-fancybox="gallery" href="https://images.pexels.com/photos/1300560/pexels-photo-1300560.jpeg?auto=compress&w=800&q=80"><img src="https://images.pexels.com/photos/1300560/pexels-photo-1300560.jpeg?auto=compress&w=400&q=80" alt="Event Gift"></a>
-          <a data-fancybox="gallery" href="https://images.pexels.com/photos/532225/pexels-photo-532225.jpeg?auto=compress&w=800&q=80"><img src="https://images.pexels.com/photos/532225/pexels-photo-532225.jpeg?auto=compress&w=400&q=80" alt="Custom Gift"></a>
+          <div id="edu-quiz-result" style="margin-top:1rem;"></div>
         </div>
       </div>
     </section>
@@ -338,16 +617,16 @@
           <div class="design-type-desc">Sleek, tech-inspired. Perfect for startups and innovation-driven teams.</div>
         </div>
       </div>
-      <div id="designTypeInfo" style="font-size:1.1rem;color:#4f46e5;text-align:center;"></div>
+      <div id="designTypeInfo" style="font-size:1.1rem;color:var(--primary);text-align:center;"></div>
       <h3 style="margin-top:2rem;">Applications</h3>
-      <ul>
+      <ul style="text-align:left;max-width:650px;margin:0 auto;">
         <li><b>T-shirt Design:</b> Fit, fabric, and purpose-driven for comfort and impact.</li>
         <li><b>Mug Design:</b> Wraparound graphics, handle placement for everyday use.</li>
         <li><b>Bottle Design:</b> Ergonomics and viewing angles for function and style.</li>
       </ul>
     </section>
 
-    <!-- FAQ & Chatbot -->
+    <!-- FAQ -->
     <section id="faq">
       <h2>Frequently Asked Questions</h2>
       <details>
@@ -394,6 +673,11 @@
         'tshirt-colour': 'Pick a base color that complements your design.'
       };
       document.getElementById('process-detail').textContent = details[element];
+      document.querySelectorAll('.process-step').forEach(el => el.classList.remove('active'));
+      if(element) {
+        const idx = ['colour','text','placement','tshirt-colour'].indexOf(element);
+        if(idx!==-1) document.querySelectorAll('.process-step')[idx].classList.add('active');
+      }
     }
     function showFulfillment() {
       document.getElementById('fulfillment-details').classList.remove('hidden');
@@ -410,40 +694,37 @@
       this.reset();
     };
 
-    // Swiper sliders
-    new Swiper('.swiper-container', {
-      loop: true,
-      pagination: { el: '.swiper-pagination' }
-    });
-    new Swiper('.testimonials', {
-      loop: true,
-      pagination: { el: '.swiper-pagination' }
-    });
-
-    // Quiz logic
-    function quizAnswer(correct) {
-      const result = document.getElementById('quiz-result');
-      if (correct) {
-        result.innerHTML = '<span style="color:green;">Correct! DTG is best for vibrant, full-color images on cotton.</span><br><a href="#requirements" class="cta">Get a Free Consultation</a>';
-      } else {
-        result.innerHTML = '<span style="color:red;">Not quite. Try again!</span>';
-      }
-    }
-
-    // Gift idea generator
-    function showGiftIdeas() {
-      const val = document.getElementById('gift-occasion').value;
-      const ideas = {
-        wedding: '<ul><li>Custom T-shirts for guests</li><li>Personalized mugs for bridal party</li><li>"Save the Date" bottles</li></ul><a href="#requirements" class="cta">Personalize Your Gift</a>',
-        birthday: '<ul><li>Photo mugs</li><li>Custom T-shirts with name/age</li><li>Printed bottles</li></ul><a href="#requirements" class="cta">Browse Our Gift Collections</a>',
-        anniversary: '<ul><li>Matching couple tees</li><li>Engraved mugs</li><li>Custom message bottles</li></ul><a href="#requirements" class="cta">Get a Custom Quote</a>'
+    // Print Method Info
+    function showPrintInfo(type) {
+      const info = {
+        'Screen Printing': "<b>Screen Printing:</b> The industry standard for bold, durable designs on bulk orders. Great for company events, uniforms, and promotional campaigns. Best for simple logos and limited colors. <i>Low cost per unit in large runs.</i>",
+        'DTG Printing': "<b>Direct-to-Garment (DTG):</b> High-resolution, photorealistic prints with unlimited colors. Ideal for small batches, creative campaigns, and influencer drops. <i>Best on 100% cotton.</i>",
+        'Dye Sublimation': "<b>Dye Sublimation:</b> All-over, seamless prints with vibrant colors. Perfect for polyester jerseys, sportswear, and edge-to-edge designs. <i>Not for cotton.</i>",
+        'DTF Printing': "<b>Direct-to-Film (DTF):</b> Flexible, vibrant, and works on nearly any fabric. Great for detailed, colorful designs and fast turnarounds.",
+        'Heat Transfer': "<b>Heat Transfer:</b> Fast, affordable, and perfect for small, personalized orders or photo prints. Not as durable as screen/DTG for heavy use.",
+        'Embroidery': "<b>Embroidery:</b> Premium, textured, and long-lasting. Best for logos on polos, hats, and uniforms. <i>Signals quality and professionalism.</i>",
+        'Puff Printing': "<b>Puff Printing:</b> 3D, tactile effect that stands out. Great for bold logos and streetwear."
       };
-      document.getElementById('gift-ideas').innerHTML = ideas[val] || '';
+      document.getElementById('printMethodInfo').innerHTML = info[type] || '';
+      document.querySelectorAll('#printMethodGrid .design-type-card').forEach(el => el.classList.remove('selected'));
+      // Highlight selected card
+      Array.from(document.querySelectorAll('#printMethodGrid .design-type-card')).forEach(card => {
+        if(card.querySelector('h4').textContent === type || card.querySelector('h4').textContent === type.replace(' Printing','')) card.classList.add('selected');
+      });
     }
-
+    // Quiz Modal Logic
+    function showQuizResult(type) {
+      const results = {
+        cost: "<b>Screen Printing</b> is your best bet for low cost and high durability in bulk.",
+        detail: "<b>DTG or DTF Printing</b> are perfect for full-color, detailed, and creative designs.",
+        premium: "<b>Embroidery</b> gives your merch a premium, professional look.",
+        effects: "<b>Puff Printing</b> or <b>Heat Transfer</b> unlock special effects for creative campaigns."
+      };
+      document.getElementById('edu-quiz-result').innerHTML = results[type] + "<br><br><a href='#requirements' class='cta'>Get a Free Consultation</a>";
+    }
     // Interactive Design Types
     function selectDesignType(card, type) {
-      document.querySelectorAll('.design-type-card').forEach(el => el.classList.remove('selected'));
+      document.querySelectorAll('#designTypeGrid .design-type-card').forEach(el => el.classList.remove('selected'));
       card.classList.add('selected');
       const info = {
         'Minimalist': 'Minimalist designs use space, subtle color, and simple shapes to create a sophisticated, modern look. Great for brands that want to feel fresh and uncluttered.',
@@ -459,7 +740,6 @@
       };
       document.getElementById('designTypeInfo').textContent = info[type] || '';
     }
-
     // Chatbot logic
     function toggleChatbot() {
       document.getElementById('chatbotWindow').classList.toggle('active');
@@ -482,6 +762,10 @@
       }, 800);
       input.value = '';
       messages.scrollTop = messages.scrollHeight;
+    }
+    // Modal close on background click
+    window.onclick = function(e) {
+      if(e.target && e.target.id==='quiz-modal') document.getElementById('quiz-modal').style.display='none';
     }
   </script>
 </body>
